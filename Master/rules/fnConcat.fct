@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.rule:Function xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.rule="http://ilog.rules.studio/model/rule.ecore">
+  <name>fnConcat</name>
+  <uuid>5f8f74e5-ec07-4883-804d-9bbc6b73f4ea</uuid>
+  <returnType>java.lang.String</returnType>
+  <definition><![CDATA[if(pcwPricingVer==null)
+{
+return baseVersion + "/" +riskVer+"/"+commVer;
+}
+else
+{
+return baseVersion + "/" + pcwPricingVer+"/"+riskVer+"/"+commVer;
+}
+]]></definition>
+  <arguments name="baseVersion" type="java.lang.String"/>
+  <arguments name="pcwPricingVer" type="java.lang.String"/>
+  <arguments name="riskVer" type="java.lang.String"/>
+  <arguments name="commVer" type="java.lang.String"/>
+</ilog.rules.studio.model.rule:Function>

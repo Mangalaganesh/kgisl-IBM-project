@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <eAnnotations source="ilog.rules.custom_properties">
+    <details key="Group" value="rtsConfigManagers"/>
+  </eAnnotations>
+  <name>Product Validation</name>
+  <uuid>a283dbdd-8b17-4362-8b47-6950168aa278</uuid>
+  <locale>en_US</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+  <Body>
+    <TaskList>
+      <StartTask Identifier="task_1"/>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="rule_1" Ordering="Default">
+        <FinalActions Language="irl"><![CDATA[if(mainClsDesc==null  || mainClsDesc == "" || mainClsDesc.equals("") ){
+
+errorCode="ERR_9003";
+
+} else if(productDesc==null || productDesc=="" || productDesc.equals("")){
+
+errorCode="ERR_9004";
+
+} else if(sourceType==null || sourceType=="" || sourceType.equals("")){
+
+errorCode="ERR_9001";
+
+} 
+else if( transDesc ==null || transDesc=="" || transDesc.equals("")){
+
+errorCode="ERR_9005";
+
+}
+else if( agtValInd ==null || agtValInd=="" || agtValInd.equals("N")){
+
+errorCode="ERR_9002";
+
+}
+else if((contactTypeDesc ==null || contactTypeDesc=="" || contactTypeDesc.equals("") )){
+
+errorCode="ERR_0101";
+
+}
+
+else if( sstWaiverIndDesc ==null || sstWaiverIndDesc=="" || sstWaiverIndDesc.equals("")){
+
+errorCode="ERR_9014";
+
+} else if (cnIssueDt ==null || cnIssueDt=="" || cnIssueDt.equals("")){
+	
+	errorCode = "ERR_9008";
+
+}
+
+if(!mainClsCode.equals("MR")){
+	
+if(incepDt ==null || incepDt=="" || incepDt.equals("")){
+	
+	errorCode = "ERR_9009";
+
+} else if (expiryDt ==null || expiryDt=="" || expiryDt.equals("")){
+	
+	errorCode = "ERR_9010";
+
+}}
+
+//if((!(mainClsCode.equals("MH")) && !(mainClsCode.equals("PA")) && !(mainClsCode.equals("MT"))) && totSumCovered<=0 ){
+	
+//	errorCode = "ERR_9011";
+
+//}
+
+if((!(mainClsCode.equals("MH")) && !(mainClsCode.equals("MS")) && !(mainClsCode.equals("PA")) && !(mainClsCode.equals("MT")) && !(mainClsCode.equals("FR"))) && totSumCovered<=0 && (errorCode == null || errorCode.equals(""))){
+	
+	errorCode = "ERR_9011";
+
+}
+if((mainClsCode.equals("MS") && productType.equals("NONIG")) && totSumCovered<=0 && (errorCode == null || errorCode.equals(""))){
+	errorCode = "ERR_9011";
+}
+
+if((mainClsCode.equals("FR") && !(productType.equals("GTF"))) && totSumCovered<=0 && (errorCode == null || errorCode.equals(""))){
+	errorCode = "ERR_9011";
+}
+
+if(mainClsCode.equals("MT")){
+	if(occDesc == null || occDesc.equals("") || occDesc == ""){
+	errorCode = "ERR_9017";
+	}
+}
+
+]]></FinalActions>
+        <RuleList>
+          <Rule Uuid="6e9885ad-1109-4d51-89ee-cf19c9809d1a"/>
+          <Rule Uuid="de7a6f32-2c9e-41c0-9859-2e6f052aab5d"/>
+          <Rule Uuid="8efd34a4-1714-4ef3-b272-80201fd48a20"/>
+          <Rule Uuid="f5beebef-4538-42f5-9416-e2967ff76505"/>
+          <Rule Uuid="39f8a253-8c5a-44e6-be05-c65455da6709"/>
+          <Rule Uuid="60318c28-f624-46ea-9c8a-bde8ecc62eb8"/>
+          <Rule Uuid="b5c2531b-e010-435c-822f-ac12a9b80c82"/>
+          <Rule Uuid="5da7d2a2-d85e-41c8-b653-9bdaa7f63e17"/>
+          <Rule Uuid="61404eab-4360-4a18-9fe5-3f5c478678bf"/>
+        </RuleList>
+      </RuleTask>
+      <StopTask Identifier="task_2"/>
+    </TaskList>
+    <NodeList>
+      <TaskNode Identifier="node_0" Task="task_1"/>
+      <TaskNode Identifier="node_1" Task="task_2"/>
+      <TaskNode Identifier="node_3" Task="rule_1"/>
+    </NodeList>
+    <TransitionList>
+      <Transition Identifier="transition_0" Source="node_0" Target="node_3"/>
+      <Transition Identifier="transition_1" Source="node_3" Target="node_1"/>
+    </TransitionList>
+  </Body>
+  <Resources>
+    <ResourceSet Locale="en_US">
+      <Data Name="node_3#label">Genric Validation</Data>
+      <Data Name="node_0#name">node_0</Data>
+      <Data Name="node_1#name">node_1</Data>
+      <Data Name="node_3#y">114.66666</Data>
+      <Data Name="node_0#x">117.71127</Data>
+      <Data Name="node_0#y">44.666656</Data>
+      <Data Name="node_1#x">117.71127</Data>
+      <Data Name="node_1#y">194.66666</Data>
+      <Data Name="node_3#name">node_3</Data>
+      <Data Name="node_3#x">57.25815</Data>
+    </ResourceSet>
+  </Resources>
+  <Properties>
+    <imports><![CDATA[use mainClsCode;
+use mainClsDesc;
+use productDesc;
+use chanCode;
+use sourceType;
+use mRebatePct;
+use natDesc;
+use occDesc;
+use errorCode;
+use contactTypeDesc;
+use transDesc;
+use agtGrpCode;
+use sstWaiverIndDesc;
+use cnIssueDt;
+use incepDt;
+use expiryDt;
+use totSumCovered;
+use priciGrpCode;
+use agtGrpName;
+use agtValInd;
+use productType;
+]]></imports>
+  </Properties>
+</Ruleflow>
+</rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>

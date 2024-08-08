@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.dt:DecisionTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.dt="http://ilog.rules.studio/model/dt.ecore">
+  <name>Commission &amp; Rebate</name>
+  <uuid>158a5380-1f18-402d-a583-3270dd3a30cf</uuid>
+  <locale>en_US</locale>
+  <definition>
+<DT xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable" Version="7.0">
+  <Body xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable">
+    <Properties>
+      <Property Name="UI.MediaType"><![CDATA[Web]]></Property>
+      <Property Name="RowOrdering"><![CDATA[Automatic]]></Property>
+    </Properties>
+    <Structure>
+      <ConditionDefinitions>
+        <ConditionDefinition Id="C0">
+          <ExpressionDefinition>
+            <Text><![CDATA[mainClsCode is  <a string> ]]></Text>
+          </ExpressionDefinition>
+        </ConditionDefinition>
+        <ConditionDefinition Id="C2">
+          <ExpressionDefinition>
+            <Text><![CDATA[productCode is one of <strings> ]]></Text>
+          </ExpressionDefinition>
+        </ConditionDefinition>
+        <ConditionDefinition Id="C3">
+          <ExpressionDefinition>
+            <Text><![CDATA[agtGrpCode is one of <strings> ]]></Text>
+          </ExpressionDefinition>
+        </ConditionDefinition>
+        <ConditionDefinition Id="C4">
+          <ExpressionDefinition>
+            <Text><![CDATA[cdPricingSerNo is one of <strings> ]]></Text>
+          </ExpressionDefinition>
+        </ConditionDefinition>
+      </ConditionDefinitions>
+      <ActionDefinitions>
+        <ActionDefinition Id="A0">
+          <ExpressionDefinition>
+            <Text><![CDATA[set mCommPct to <a number> ]]></Text>
+          </ExpressionDefinition>
+        </ActionDefinition>
+        <ActionDefinition Id="A2">
+          <ExpressionDefinition>
+            <Text><![CDATA[set mRebatePct to <a number> ]]></Text>
+          </ExpressionDefinition>
+        </ActionDefinition>
+      </ActionDefinitions>
+    </Structure>
+    <Contents>
+      <Partition DefId="C0">
+        <Condition>
+          <Expression>
+            <Param><![CDATA["EN"]]></Param>
+          </Expression>
+          <Partition DefId="C4">
+            <Condition>
+              <Expression>
+                <Param><![CDATA[{ "CD-V001" }]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA[15]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA[15]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["FR"]]></Param>
+          </Expression>
+          <Partition DefId="C4">
+            <Condition>
+              <Expression>
+                <Param><![CDATA[{ "CD-V001" }]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA[15]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA[15]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["LB"]]></Param>
+          </Expression>
+          <ActionSet>
+            <Action DefId="A0">
+              <Expression>
+                <Param><![CDATA[25]]></Param>
+              </Expression>
+            </Action>
+            <Action DefId="A2">
+              <Expression>
+                <Param><![CDATA[25]]></Param>
+              </Expression>
+            </Action>
+          </ActionSet>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["MH"]]></Param>
+          </Expression>
+          <Partition DefId="C4">
+            <Condition>
+              <Expression>
+                <Param><![CDATA[{ "CD-V001" }]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA[10]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA[10]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["MR"]]></Param>
+          </Expression>
+          <Partition DefId="C4">
+            <Condition>
+              <Expression>
+                <Param><![CDATA[{ "CD-V001" }]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA[15]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA[15]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["MS"]]></Param>
+          </Expression>
+          <Partition DefId="C4">
+            <Condition>
+              <Expression>
+                <Param><![CDATA[{ "CD-V001" }]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA[25]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA[25]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["MT"]]></Param>
+          </Expression>
+          <Partition DefId="C4">
+            <Condition>
+              <Expression>
+                <Param><![CDATA[{ "CD-V001" }]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA[10]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA[10]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["PA"]]></Param>
+          </Expression>
+          <Partition DefId="C4">
+            <Condition>
+              <Expression>
+                <Param><![CDATA[{ "CD-V001" }]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA[25]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA[25]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["PK"]]></Param>
+          </Expression>
+          <Partition DefId="C4">
+            <Condition>
+              <Expression>
+                <Param><![CDATA[{ "CD-V001" }]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA[25]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA[25]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["WC"]]></Param>
+          </Expression>
+          <Partition DefId="C4">
+            <Condition>
+              <Expression>
+                <Param><![CDATA[{ "CD-V001" }]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA[25]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA[25]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+      </Partition>
+    </Contents>
+  </Body>
+  <Resources DefaultLocale="en_US" xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable">
+    <ResourceSet Locale="en_US">
+      <Data Name="Definitions(C2)[0]#HeaderText"><![CDATA[a string]]></Data>
+      <Data Name="Definitions(C3)[0]#HeaderText"><![CDATA[a string]]></Data>
+      <Data Name="Definitions(C0)#HeaderText"><![CDATA[Main Class Code]]></Data>
+      <Data Name="Definitions(C4)#HeaderText"><![CDATA[Version No.]]></Data>
+      <Data Name="Definitions(C2)#HeaderText"><![CDATA[Class Code]]></Data>
+      <Data Name="Definitions(C3)#HeaderText"><![CDATA[Agent Group Code]]></Data>
+      <Data Name="Definitions(A0)[0]#HeaderText"><![CDATA[a number]]></Data>
+      <Data Name="Definitions(C0)[0]#HeaderText"><![CDATA[a string]]></Data>
+      <Data Name="Definitions(A0)#HeaderText"><![CDATA[Commission %]]></Data>
+      <Data Name="Definitions(A2)#HeaderText"><![CDATA[Rebate %]]></Data>
+    </ResourceSet>
+  </Resources>
+</DT>
+</definition>
+</ilog.rules.studio.model.dt:DecisionTable>

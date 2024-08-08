@@ -1,0 +1,80 @@
+# Vocabulary Properties
+main.UtilDates.converDateFormat(java.lang.String,java.lang.String)#phrase.navigation = util dates.converDateFormat({0}, {1})
+main.UtilDates.findAge(java.util.Date)#phrase.navigation = util dates.findAge({0})
+main.Utils.dateDifference(java.lang.String,java.lang.String)#phrase.navigation = utils.dateDifference({0}, {1})
+main.Utils.dateDifferenceString(java.lang.String,java.lang.String)#phrase.navigation = utils.dateDifferenceString({0}, {1})
+main.Utils.removeDuplicates(java.lang.String)#phrase.navigation = utils.removeDuplicates({0})
+main.Validation.validate(java.lang.String,java.lang.String)#phrase.navigation = validation.validate({0}, {1})
+uuid = e8142c04-d35e-4089-b4b1-ff86ec229e96
+
+# main.AgentGroupCodeEnum
+main.AgentGroupCodeEnum#concept.label = agent group code enum
+main.AgentGroupCodeEnum.ABC#instance.label = ABC
+main.AgentGroupCodeEnum.TAB#instance.label = TAB
+main.AgentGroupCodeEnum.XYZ#instance.label = XYZ
+main.AgentGroupCodeEnum.value#phrase.navigation = {value} of {this}
+main.AgentGroupCodeEnum.valueOf(java.lang.String)#phrase.navigation = agent group code enum.valueOf({0})
+main.AgentGroupCodeEnum.values()#phrase.navigation = agent group code enum.values()
+
+# main.RiskTypeDesc
+main.RiskTypeDesc#concept.label = risk type desc
+
+# main.RiskTypeDescList
+main.RiskTypeDescList#concept.label = risk type desc list
+main.RiskTypeDescList.riskReason#phrase.action = set the risk reasons of {this} to {risk reason}
+main.RiskTypeDescList.riskReason#phrase.navigation = {risk reason} of {this}
+
+# main.StringUtils
+main.StringUtils#concept.label = string utils
+main.StringUtils.appendString(java.lang.String,java.lang.String)#phrase.navigation = string utils.appendString({0}, {1})
+main.StringUtils.removeDuplicates(java.lang.String)#phrase.navigation = string utils.removeDuplicates({0})
+
+# main.UtilDates
+main.UtilDates#concept.label = util dates
+main.UtilDates.calculateAge(java.util.Date)#phrase.navigation = util dates.calculateAge({0})
+main.UtilDates.calculateDaysDifference(java.util.Date)#phrase.navigation = util dates.calculateDaysDifference({0})
+main.UtilDates.converDateFormat(java.lang.String)#phrase.navigation = util dates.converDateFormat({0})
+main.UtilDates.convertDateFormat(java.lang.String)#phrase.navigation = util dates.convertDateFormat({0})
+main.UtilDates.dateDifferenceString(java.lang.String,java.lang.String)#phrase.navigation = util dates.dateDifferenceString({0}, {1})
+main.UtilDates.differenceBetweenTwoDates(java.util.Date,java.util.Date)#phrase.navigation = util dates.differenceBetweenTwoDates({0}, {1})
+main.UtilDates.getCurrentDate()#phrase.navigation = the current date
+main.UtilDates.totalDaysInYear(java.util.Date)#phrase.navigation = util dates.totalDaysInYear({0})
+
+# main.Utils
+main.Utils#concept.label = utils
+main.Utils.calculate(double,double,java.lang.String)#phrase.navigation = utils.calculate({0}, {1}, {2})
+main.Utils.roundMax(double)#phrase.navigation = utils.roundMax({0})
+main.Utils.roundValue(double,int)#phrase.navigation = utils.roundValue({0}, {1})
+main.Utils.trimEmpty(java.lang.String)#phrase.navigation = utils.trimEmpty({0})
+
+# main.Validation
+main.Validation#concept.label = validation
+main.Validation.validate(java.lang.String,java.lang.String,java.lang.String,java.lang.String)#phrase.navigation = validation.validate({0}, {1}, {2}, {3})
+main.Validation.validate(main.genric.Master,main.genric.Master)#phrase.navigation = validation.validate({0}, {1})
+main.Validation.validateM(main.genric.Master,main.genric.Master)#phrase.navigation = validation.validateM({0}, {1})
+main.Validation.validateS(java.lang.String,java.lang.String,java.lang.String,java.lang.String)#phrase.navigation = validation.validateS({0}, {1}, {2}, {3})
+
+# main.genric.Master
+main.genric.Master#concept.label = master
+main.genric.Master.agtGrpCode#phrase.action = set the agt grp code of {this} to {agt grp code}
+main.genric.Master.agtGrpCode#phrase.navigation = {agt grp code} of {this}
+main.genric.Master.cnIssueDt#phrase.action = set the cn issue dt of {this} to {cn issue dt}
+main.genric.Master.cnIssueDt#phrase.navigation = {cn issue dt} of {this}
+main.genric.Master.contactType#phrase.action = set the contact type of {this} to {contact type}
+main.genric.Master.contactType#phrase.navigation = {contact type} of {this}
+main.genric.Master.expiryDt#phrase.action = set the expiry dt of {this} to {expiry dt}
+main.genric.Master.expiryDt#phrase.navigation = {expiry dt} of {this}
+main.genric.Master.incepDt#phrase.action = set the incep dt of {this} to {incep dt}
+main.genric.Master.incepDt#phrase.navigation = {incep dt} of {this}
+main.genric.Master.mainClsCode#phrase.action = set the main cls code of {this} to {main cls code}
+main.genric.Master.mainClsCode#phrase.navigation = {main cls code} of {this}
+main.genric.Master.natCode#phrase.action = set the nat code of {this} to {nat code}
+main.genric.Master.natCode#phrase.navigation = {nat code} of {this}
+main.genric.Master.occCode#phrase.action = set the occ code of {this} to {occ code}
+main.genric.Master.occCode#phrase.navigation = {occ code} of {this}
+main.genric.Master.productCode#phrase.action = set the product code of {this} to {product code}
+main.genric.Master.productCode#phrase.navigation = {product code} of {this}
+main.genric.Master.sourceCode#phrase.action = set the source code of {this} to {source code}
+main.genric.Master.sourceCode#phrase.navigation = {source code} of {this}
+main.genric.Master.sstWaiverInd#phrase.action = set the sst waiver ind of {this} to {sst waiver ind}
+main.genric.Master.sstWaiverInd#phrase.navigation = {sst waiver ind} of {this}

@@ -1,0 +1,1538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.dt:DecisionTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.dt="http://ilog.rules.studio/model/dt.ecore">
+  <eAnnotations source="ilog.rules.custom_properties">
+    <details key="Group" value="rtsConfigManagers"/>
+  </eAnnotations>
+  <name>Class</name>
+  <uuid>de7a6f32-2c9e-41c0-9859-2e6f052aab5d</uuid>
+  <locale>en_US</locale>
+  <definition>
+<DT xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable" Version="7.0">
+  <Body xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable">
+    <Properties>
+      <Property Name="UI.MediaType"><![CDATA[Web]]></Property>
+      <Property Name="RowOrdering"><![CDATA[Manual]]></Property>
+    </Properties>
+    <Preconditions>
+      <Text><![CDATA[ ]]></Text>
+    </Preconditions>
+    <Structure>
+      <ConditionDefinitions>
+        <ConditionDefinition Id="C0">
+          <ExpressionDefinition>
+            <Text><![CDATA[mainClsCode is <a string> ]]></Text>
+          </ExpressionDefinition>
+        </ConditionDefinition>
+        <ConditionDefinition Id="C2">
+          <ExpressionDefinition>
+            <Text><![CDATA[productCode  is <a string> ]]></Text>
+          </ExpressionDefinition>
+        </ConditionDefinition>
+      </ConditionDefinitions>
+      <ActionDefinitions>
+        <ActionDefinition Id="A0">
+          <ExpressionDefinition>
+            <Text><![CDATA[set productDesc to <a string> ]]></Text>
+          </ExpressionDefinition>
+        </ActionDefinition>
+        <ActionDefinition Id="A2">
+          <ExpressionDefinition>
+            <Text><![CDATA[set productType to <a string> ]]></Text>
+          </ExpressionDefinition>
+        </ActionDefinition>
+      </ActionDefinitions>
+    </Structure>
+    <Contents>
+      <Partition DefId="C0">
+        <Condition>
+          <Expression>
+            <Param><![CDATA["MH"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MH03T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["SKIM KEMASUKAN HOSPITAL & PEMB"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Text><![CDATA[<an object> is <an object>]]></Text>
+            <Param><![CDATA["FR"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["FR05W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["CONSEQUENTIAL LOSS"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["ANNUAL"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["FR06W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["TAKAFUL OF GROWING TREES"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["GTF"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["FR07W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["INDUSTRIAL ALL RISKS (IAR)"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["ANNUAL"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["FR08W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["FIRE & CONSEQUENTIAL LOSS"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["ANNUAL"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["HO01W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["HOUSEOWNER"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["ANNUAL"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["HO02W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["HOUSEHOLDER"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["ANNUAL"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["HO03W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["HOUSEOWNER/HOUSEHOLDER"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["ANNUAL"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["HO04W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS HOME PROTECT"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["ANNUAL"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["HO11W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["SINGLE CONTRIBUTION HOUSEOWNER"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["LTF"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["HO14W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["LPPSA SINGLE CONTR HOUSEOWNER"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["LTF"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["HO15W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS LONG TERM  HOUSEOWNER"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["LTF"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["ID02W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["FIRE - MATERIAL DAMAGE (IND)"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["ANNUAL"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["ID03W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS FIRE PLUS"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["ANNUAL"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["ID04W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS FIRE PROTECT"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["ANNUAL"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MD01W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["FIRE - MATERIAL DAMAGE (RES)"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["ANNUAL"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MD02W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS LONG TERM  FIRE (LTF)"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["LTF"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MD03W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS LONG TERM FIRE (LTF) GENERIC"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["LTF"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Text><![CDATA[<an object> is <an object>]]></Text>
+            <Param><![CDATA["MR"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MR01T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["CARGO OPEN COVER"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["MOC"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MR07T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["CARGO (SINGLE VOYAGE)"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NON MOC"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MR03T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["GOODS IN TRANSIT"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NON MOC"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MR06T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["MARINE CARGO (CERTIFICATE)"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NON MOC"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MR09T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["ANNUAL INLAND TRANSIT"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NON MOC"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["HL01T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["MARINE HULL"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NON MOC"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Text><![CDATA[<an object> is <an object>]]></Text>
+            <Param><![CDATA["PA"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA04W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["PA - IKHLAS PERDANA"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["PA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA05W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["GPA - IKHLAS PERDANA"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["GPA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA14W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS PERMATA"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["PA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA17W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["GPA - AMANI ENH"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["GPA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA22W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["GPA AMANI PLUS"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["GPA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA37W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["LONG TERM PA"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["PA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA38W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS GPA TAKAFUL (MBSB)"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["GPA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA41W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS GPA TAKAFUL - SNATCH TE"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["GPA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA07W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS KEMBARA"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["TPA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA18W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS KEMBARA PLUS TAKAFUL"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["TPA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA19W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS KEMBARA HAJJ & UMRAH"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["TPA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA02W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["GROUP PA"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["GPA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA01W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["PERSONAL ACCIDENT (INDIVIDUAL) + HLB"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["PA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA08W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["CORPORATE TRAVEL PA"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["TPA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA20W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["MORTGAGE REDUCING PA"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["PA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PA31W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["SECURE TRAVEL"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["TPA"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Text><![CDATA[<an object> is <an object>]]></Text>
+            <Param><![CDATA["WC"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["WC01W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["WORKMEN COMPENSATION"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["EL01W"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS EMPLOYER’S LIABILITY "]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Text><![CDATA[<an object> is <an object>]]></Text>
+            <Param><![CDATA["EN"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["EN01T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["CONTRACTOR'S ALL RISK"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["PROJECT"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["EN03T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["ERECTION ALL RISKS"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["PROJECT"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["EN02T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["MACHINERY BREAKDOWN"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONPROJECT"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["EN04T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["MACHINERY BREAKDOWN LOP"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONPROJECT"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["EN05T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["BOILER AND PRESSURE VESSEL"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONPROJECT"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["EN06T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["STORAGE TANK"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONPROJECT"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["EN07T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["ELECTRONIC EQUIPMENT"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONPROJECT"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["EN08T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["CIVIL ENGINEERING COMPLETED RI"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONPROJECT"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["EN10T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["DETERIORATION OF STOCK"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONPROJECT"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["EN14T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["MACHNERY BRKDWN/MBLOP"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONPROJECT"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["LB"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PL01T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["PUBLIC LIABILITY"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["LB02T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["PRODUCTS LIABILITY"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["LB03T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["DIRECTORS AND OFFICERS LIABILITY"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["LB04T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["PROFESSIONAL INDEMNITY"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["LB05T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["MEDICAL MALPRACTICE"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["LB06T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["COMPREHENSIVE GENERAL LIABILITY"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["LB07"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["WAREHOUSEMEN'S LIABILITY"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["LB08T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["ERROR & OMISSION LIABILITY"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["LB"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["LB10T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["CYBER LIABILITY"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Text><![CDATA[<an object> is <an object>]]></Text>
+            <Param><![CDATA["MS"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["BD01T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IMMIGRATION BOND/G. LETTER"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["IG"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MS01T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["FIDELITY GUARANTEE"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONIG"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MS02T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["MONEY"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONIG"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MS03T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["BURGLARY"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONIG"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MS04T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["PLATE GLASS"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONIG"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MS05T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["COMPREHENSIVE PERILS"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONIG"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MS06T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["LIVESTOCK"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONIG"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MS07T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["COMPUTER COMP PERILS"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONIG"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MS08T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["EQUIPMENT COMP PERILS"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONIG"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MS10T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["COMPREHENSIVE PERILS AR-RAHNU"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression>
+                    <Param><![CDATA["NONIG"]]></Param>
+                  </Expression>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["PK"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PK001T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS NIAGA - OFFICE NIAGA"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["PK"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PK002T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS NIAGA - RETAIL NIAGA"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["PK"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PK003T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS NIAGA - COMMERCIALNIAGA"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["PK"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PK004T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS NIAGA - CLINIC NIAGA"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["PK"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PK006T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS NIAGA - COMMERCIALPUNB"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["PK"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PK007T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS MASJID PROTECT TAKAFUL"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["PK"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PK008T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS JMB PLUS"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["PK"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["PK009T"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["IKHLAS SME Protect Takaful"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression>
+            <Param><![CDATA["MT"]]></Param>
+          </Expression>
+          <Partition DefId="C2">
+            <Condition>
+              <Expression>
+                <Param><![CDATA["MT"]]></Param>
+              </Expression>
+              <ActionSet>
+                <Action DefId="A0">
+                  <Expression>
+                    <Param><![CDATA["MOTOR"]]></Param>
+                  </Expression>
+                </Action>
+                <Action DefId="A2">
+                  <Expression/>
+                </Action>
+              </ActionSet>
+            </Condition>
+          </Partition>
+        </Condition>
+        <Condition>
+          <Expression/>
+          <ActionSet/>
+        </Condition>
+        <Condition>
+          <Expression/>
+          <ActionSet/>
+        </Condition>
+        <Condition>
+          <Expression/>
+          <ActionSet/>
+        </Condition>
+        <Condition>
+          <Expression/>
+          <ActionSet/>
+        </Condition>
+        <Condition>
+          <Expression/>
+          <ActionSet/>
+        </Condition>
+        <Condition>
+          <Expression/>
+          <ActionSet/>
+        </Condition>
+      </Partition>
+    </Contents>
+  </Body>
+  <Resources DefaultLocale="en_US" xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable">
+    <ResourceSet Locale="en_US">
+      <Data Name="Definitions(C2)[0]#HeaderText"><![CDATA[a string]]></Data>
+      <Data Name="Definitions(C0)#HeaderText"><![CDATA[Main Class Code]]></Data>
+      <Data Name="Definitions(A0)#Width"><![CDATA[366]]></Data>
+      <Data Name="Definitions(C2)#HeaderText"><![CDATA[Class Code]]></Data>
+      <Data Name="Definitions(A0)[0]#HeaderText"><![CDATA[a string]]></Data>
+      <Data Name="Definitions(C0)[0]#HeaderText"><![CDATA[a string]]></Data>
+      <Data Name="Definitions(A0)#HeaderText"><![CDATA[Description]]></Data>
+      <Data Name="Definitions(A2)#HeaderText"><![CDATA[Product Type]]></Data>
+    </ResourceSet>
+  </Resources>
+</DT>
+</definition>
+</ilog.rules.studio.model.dt:DecisionTable>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.base:VariableSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.base="http://ilog.rules.studio/model/base.ecore">
+  <name>Java Variables</name>
+  <uuid>c36fc03f-6fc7-4e86-a9c0-1264d4efe972</uuid>
+  <documentation><![CDATA[]]></documentation>
+  <variables name="riskCriteria" type="main.RiskTypeDescList" initialValue="" verbalization="riskCriteria"/>
+</ilog.rules.studio.model.base:VariableSet>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.base:VariableSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.base="http://ilog.rules.studio/model/base.ecore">
+  <name>Exception Variables</name>
+  <uuid>a149e66c-cdab-4757-9d1b-78e5a405c190</uuid>
+  <documentation><![CDATA[]]></documentation>
+  <variables name="errorCode" type="java.lang.String" initialValue="&quot;&quot;" verbalization="errorCode"/>
+  <variables name="errorDesc" type="java.lang.String" initialValue="&quot;&quot;" verbalization="errorDesc"/>
+</ilog.rules.studio.model.base:VariableSet>

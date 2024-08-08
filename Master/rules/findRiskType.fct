@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.rule:Function xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.rule="http://ilog.rules.studio/model/rule.ecore">
+  <eAnnotations source="ilog.rules.custom_properties">
+    <details key="Group" value="rtsConfigManagers"/>
+  </eAnnotations>
+  <name>findRiskType</name>
+  <uuid>abf97028-3287-45e7-b8c6-7684c1cbf547</uuid>
+  <returnType>java.lang.String</returnType>
+  <definition><![CDATA[if(tempRisk != null || tempRisk != ""){
+
+		if(tempRisk.contains("D")){
+
+			riskType = "D";
+
+		} else if(tempRisk.contains("R")){
+
+			riskType = "R";
+
+		} else {
+
+			riskType = "A";
+
+		}
+
+}
+return riskType;]]></definition>
+  <imports>use riskType;</imports>
+  <arguments name="tempRisk" type="java.lang.String"/>
+</ilog.rules.studio.model.rule:Function>

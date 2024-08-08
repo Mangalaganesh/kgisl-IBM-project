@@ -1,0 +1,87 @@
+
+property loadGetterSetterAsProperties "true"
+property origin "xom:/Master//MasterXom"
+property uuid "b49df449-c0cc-4362-9c7f-f7fc73c13a60"
+package main;
+
+
+public final class AgentGroupCodeEnum
+        extends java.lang.Enum
+{
+    domain {static TAB, static ABC, static XYZ}
+    public static final readonly main.AgentGroupCodeEnum ABC;
+    public static final readonly main.AgentGroupCodeEnum TAB;
+    public static final readonly main.AgentGroupCodeEnum XYZ;
+    public readonly string value;
+    public static main.AgentGroupCodeEnum valueOf(string arg);
+    public static main.AgentGroupCodeEnum[] values();
+}
+
+public class RiskTypeDesc
+{
+    public RiskTypeDesc();
+}
+
+public class RiskTypeDescList
+{
+    public java.util.LinkedList riskReason domain 0,* class string;
+    public RiskTypeDescList();
+}
+
+public class StringUtils
+{
+    public StringUtils();
+    public static string appendString(string arg1, string arg2);
+    public static string removeDuplicates(string arg);
+}
+
+public class UtilDates
+{
+    public UtilDates();
+    public static java.lang.Long calculateAge(java.util.Date arg);
+    public static long calculateDaysDifference(java.util.Date arg);
+    public static java.util.Date converDateFormat(string arg);
+    public static java.util.Date convertDateFormat(string arg);
+    public static long dateDifferenceString(string arg1, string arg2);
+    public static long differenceBetweenTwoDates(java.util.Date arg1, java.util.Date arg2);
+    public static java.util.Date getCurrentDate();
+    public static long totalDaysInYear(java.util.Date arg);
+}
+
+public class Utils
+{
+    public Utils();
+    public static double calculate(double arg1, double arg2, string arg3);
+    public static double roundMax(double arg);
+    public static double roundValue(double arg1, int arg2);
+    public static string trimEmpty(string arg);
+}
+
+public class Validation
+{
+    public Validation();
+    public static string validate(main.genric.Master arg1, main.genric.Master arg2);
+    public static string validate(string arg1, string arg2, string arg3, string arg4);
+    public static string validateM(main.genric.Master arg1, main.genric.Master arg2);
+    public static string validateS(string arg1, string arg2, string arg3, string arg4);
+}
+
+package main.genric;
+
+
+public class Master
+{
+    public string agtGrpCode;
+    public java.util.Date cnIssueDt;
+    public string contactType;
+    public java.util.Date expiryDt;
+    public java.util.Date incepDt;
+    public string mainClsCode;
+    public string natCode;
+    public string occCode;
+    public string productCode;
+    public string sourceCode;
+    public string sstWaiverInd;
+    public Master();
+}
+

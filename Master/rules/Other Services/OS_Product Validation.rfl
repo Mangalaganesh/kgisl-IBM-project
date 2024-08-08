@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <name>OS_Product Validation</name>
+  <uuid>a69c9674-9184-4d4e-b26c-a5d40b1e21b7</uuid>
+  <locale>en_US</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+  <Body>
+    <TaskList>
+      <StartTask Identifier="task_1"/>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="rule_0" Ordering="Default">
+        <FinalActions Language="irl"><![CDATA[if(mainClsDesc==null  || mainClsDesc == "" || mainClsDesc.equals("") ){
+
+errorCode="ERR_9003";
+
+} else if(productDesc==null || productDesc=="" || productDesc.equals("")){
+
+errorCode="ERR_9004";
+
+} else if(sourceType==null || sourceType=="" || sourceType.equals("")){
+
+errorCode="ERR_9001";
+
+} 
+
+else if( agtGrpCode ==null || agtGrpCode=="" || agtGrpCode.equals("")){
+
+errorCode="ERR_9002";
+
+}
+]]></FinalActions>
+        <RuleList>
+          <Rule Uuid="6e9885ad-1109-4d51-89ee-cf19c9809d1a"/>
+          <Rule Uuid="de7a6f32-2c9e-41c0-9859-2e6f052aab5d"/>
+          <Rule Uuid="8efd34a4-1714-4ef3-b272-80201fd48a20"/>
+          <Rule Uuid="f5beebef-4538-42f5-9416-e2967ff76505"/>
+        </RuleList>
+      </RuleTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="rule_1" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="507b4f79-25e5-480b-81fc-db389f2187de"/>
+        </RuleList>
+      </RuleTask>
+      <StopTask Identifier="task_2"/>
+    </TaskList>
+    <NodeList>
+      <TaskNode Identifier="node_0" Task="task_1"/>
+      <TaskNode Identifier="node_1" Task="task_2"/>
+      <TaskNode Identifier="node_2" Task="rule_0"/>
+      <TaskNode Identifier="node_3" Task="rule_1"/>
+    </NodeList>
+    <TransitionList>
+      <Transition Identifier="transition_0" Source="node_0" Target="node_2"/>
+      <Transition Identifier="transition_1" Source="node_2" Target="node_3"/>
+      <Transition Identifier="transition_3" Source="node_3" Target="node_1"/>
+    </TransitionList>
+  </Body>
+  <Resources>
+    <ResourceSet Locale="en_US">
+      <Data Name="node_1#name">node_1</Data>
+      <Data Name="node_2#label">Generic Validation</Data>
+      <Data Name="node_2#name">node_2</Data>
+      <Data Name="node_3#label">Exception Handling</Data>
+      <Data Name="node_0#name">node_0</Data>
+      <Data Name="node_3#y">150.0</Data>
+      <Data Name="node_0#x">68.21094</Data>
+      <Data Name="node_0#y">0.0</Data>
+      <Data Name="node_1#x">68.21094</Data>
+      <Data Name="node_1#y">230.0</Data>
+      <Data Name="node_2#x">4.0546875</Data>
+      <Data Name="node_3#name">node_3</Data>
+      <Data Name="node_2#y">70.0</Data>
+      <Data Name="node_3#x">0.0</Data>
+    </ResourceSet>
+  </Resources>
+  <Properties>
+    <imports><![CDATA[use errorCode;
+use agtGrpCode;
+use sourceType;
+use mainClsDesc;
+use productDesc;
+]]></imports>
+  </Properties>
+</Ruleflow>
+</rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>

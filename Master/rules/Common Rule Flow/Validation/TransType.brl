@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <eAnnotations source="ilog.rules.custom_properties">
+    <details key="Group" value="rtsConfigManagers"/>
+  </eAnnotations>
+  <name>TransType</name>
+  <uuid>537ad157-90e3-4cbe-abe3-bcdfe736835f</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[if
+    transType is null
+    or transType is ""
+    or transType is empty
+then
+    set errorCode to "ERR_9005" ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

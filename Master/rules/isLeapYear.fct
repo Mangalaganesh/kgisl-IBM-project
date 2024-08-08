@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.rule:Function xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.rule="http://ilog.rules.studio/model/rule.ecore">
+  <name>isLeapYear</name>
+  <uuid>1f993a89-e386-4389-b858-4ceff8d88876</uuid>
+  <returnType>boolean</returnType>
+  <definition><![CDATA[return (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0));]]></definition>
+  <arguments name="year" type="int"/>
+</ilog.rules.studio.model.rule:Function>

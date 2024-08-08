@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <name>Input Validation</name>
+  <uuid>4dc0bd21-e25e-4a2a-a8e1-e1b43d63ca28</uuid>
+  <locale>en_US</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+    <Body>
+        <TaskList>
+            <StartTask Identifier="task_1"/>
+            <StopTask Identifier="task_2"/>
+            <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="rule_0" Ordering="Default">
+                <InitialActions Language="irl"><![CDATA[if((incepDt!=null && !incepDt.equals("")) && (expiryDt!=null) && !expiryDt.equals("")){
+		incepDtInt = UtilDates.convertDateFormat(incepDt);
+	expiryDtInt = UtilDates.convertDateFormat(expiryDt);
+
+policyPoc  =  UtilDates.differenceBetweenTwoDates ( incepDtInt , expiryDtInt ) + 1 ; 
+
+yearDays = UtilDates.totalDaysInYear(expiryDtInt);
+
+}]]></InitialActions>
+                <RuleList>
+                    <Rule Uuid="25b35c80-e6b6-4d20-82cb-7e2a587c8347"/>
+                    <Rule Uuid="cd26515f-8724-4e06-9e5f-634a07cf4597"/>
+                    <Rule Uuid="520d3565-ba3b-4947-ae9a-29ab8c444cb5"/>
+                    <Rule Uuid="7e29eb12-6aec-47ac-81da-a02599e9ce70"/>
+                    <Rule Uuid="537ad157-90e3-4cbe-abe3-bcdfe736835f"/>
+                </RuleList>
+            </RuleTask>
+            <ActionTask Identifier="function_0">
+                <Actions Language="irl"><![CDATA[errorCode="ERR_9034";]]></Actions>
+            </ActionTask>
+            <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="Comm &amp; Reb" Ordering="Default">
+                <FinalActions Language="irl"><![CDATA[if(mainClsCode.equals("MT"))
+{
+commPct = mCommPct;
+rebatePct =mRebatePct;
+} else {
+if((commPct > 0) && (commPct + rebatePct > mCommPct))
+{
+errorCode = "ERR_9019";
+}
+else if(rebatePct > mRebatePct)
+{
+errorCode = "ERR_9016";
+}
+}]]></FinalActions>
+                <RuleList>
+                    <Rule Uuid="158a5380-1f18-402d-a583-3270dd3a30cf"/>
+                </RuleList>
+            </RuleTask>
+            <SubflowTask Identifier="subflow_0" Uuid="a283dbdd-8b17-4362-8b47-6950168aa278"/>
+            <ActionTask Identifier="function_3">
+                <Actions Language="irl"><![CDATA[errorCode="ERR_9035";]]></Actions>
+            </ActionTask>
+        </TaskList>
+        <NodeList>
+            <TaskNode Identifier="node_0" Task="task_1"/>
+            <TaskNode Identifier="node_1" Task="task_2"/>
+            <BranchNode Identifier="node_2"/>
+            <TaskNode Identifier="node_3" Task="rule_0"/>
+            <TaskNode Identifier="node_5" Task="function_0"/>
+            <TaskNode Identifier="node_7" Task="Comm &amp; Reb"/>
+            <TaskNode Identifier="node_10" Task="subflow_0"/>
+            <TaskNode Identifier="node_11" Task="function_3"/>
+        </NodeList>
+        <TransitionList>
+            <Transition Identifier="transition_0" Source="node_0" Target="node_2"/>
+            <Transition Identifier="transition_1" Source="node_2" Target="node_3">
+                <Conditions Language="bal"><![CDATA[flAmtInd is not null and flAmtInd is not empty and flAmtInd is "N"]]></Conditions>
+            </Transition>
+            <Transition Identifier="transition_4" Source="node_2" Target="node_5">
+                <Conditions Language="bal"><![CDATA[flAmtInd is not null and flAmtInd is not empty and flAmtInd is "Y"]]></Conditions>
+            </Transition>
+            <Transition Identifier="transition_11" Source="node_7" Target="node_1"/>
+            <Transition Identifier="transition_16" Source="node_3" Target="node_10">
+                <Conditions Language="bal"><![CDATA[( errorCode is null
+or errorCode is empty
+or errorCode is "" )]]></Conditions>
+            </Transition>
+            <Transition Identifier="transition_2" Source="node_5" Target="node_1"/>
+            <Transition Identifier="transition_3" Source="node_10" Target="node_1"/>
+            <Transition Identifier="transition_13" Source="node_3" Target="node_1"/>
+            <Transition Identifier="transition_14" Source="node_2" Target="node_11"/>
+            <Transition Identifier="transition_18" Source="node_11" Target="node_1"/>
+            <Transition Identifier="transition_5" Source="node_10" Target="node_7">
+                <Conditions Language="bal"><![CDATA[( errorDesc is null
+or errorDesc is empty
+or errorDesc is "" )
+and ( errorCode is null
+or errorCode is empty
+or errorCode is "" )]]></Conditions>
+            </Transition>
+        </TransitionList>
+    </Body>
+    <Resources>
+        <ResourceSet Locale="en_US">
+            <Data Name="node_0#name">node_0</Data>
+            <Data Name="node_0#x">249.52359</Data>
+            <Data Name="node_0#y">3.541687</Data>
+            <Data Name="node_1#name">node_1</Data>
+            <Data Name="node_1#x">310.11313</Data>
+            <Data Name="node_1#y">503.5417</Data>
+            <Data Name="node_2#label">Condition</Data>
+            <Data Name="node_2#name">node_2</Data>
+            <Data Name="node_2#x">244.52359</Data>
+            <Data Name="node_2#y">73.54169</Data>
+            <Data Name="node_3#label">Input Validation Rule</Data>
+            <Data Name="node_3#name">node_3</Data>
+            <Data Name="node_3#x">336.68048</Data>
+            <Data Name="node_3#y">168.54169</Data>
+            <Data Name="node_5#label">Flat Amount Y</Data>
+            <Data Name="node_5#name">node_5</Data>
+            <Data Name="node_5#x">219.00226</Data>
+            <Data Name="node_5#y">328.5417</Data>
+            <Data Name="node_7#label">Commission &amp; Rebate</Data>
+            <Data Name="node_7#name">node_7</Data>
+            <Data Name="node_7#x">357.33478</Data>
+            <Data Name="node_7#y">408.5417</Data>
+            <Data Name="node_10#name">node_10</Data>
+            <Data Name="node_10#x">395.14716</Data>
+            <Data Name="node_10#y">248.54169</Data>
+            <Data Name="node_11#label">Flat Amount Ind Error</Data>
+            <Data Name="node_11#name">node_11</Data>
+            <Data Name="node_11#x">0.94563293</Data>
+            <Data Name="node_11#y">328.5417</Data>
+            <Data Name="transition_1#label">Flat Amount Ind "N"</Data>
+            <Data Name="transition_4#label">Flat Amount Ind Y</Data>
+            <Data Name="transition_16#label">Error Code Check</Data>
+            <Data Name="transition_5#label">Error check</Data>
+        </ResourceSet>
+    </Resources>
+    <Properties>
+        <imports>use mRebatePct;
+use commPct;
+use rebatePct;
+use mCommPct;
+use errorCode;
+import main.UtilDates;
+use policyPoc;
+use yearDays;
+use incepDtInt;
+use expiryDtInt;
+use incepDt;
+use expiryDt;
+use mainClsCode;
+</imports>
+    </Properties>
+</Ruleflow>
+</rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>

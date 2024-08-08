@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.rule:Function xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.rule="http://ilog.rules.studio/model/rule.ecore">
+  <name>fnSplit</name>
+  <uuid>0cb3b885-bd6d-4192-9619-ae2fc74d8326</uuid>
+  <definition><![CDATA[String[] parts = pricingVer.split("/");
+        if (parts.length == 4) {
+            basePricingSerNo= parts[0]; 
+            pcwPricingSerNo= parts[1]; 
+            riskPricingSerNo= parts[2];
+            cdPricingSerNo= parts[3];
+        } 
+else if (parts.length == 3){
+            basePricingSerNo= parts[0]; 
+            riskPricingSerNo= parts[1]; 
+            cdPricingSerNo= parts[2];
+        }]]></definition>
+  <arguments name="pricingVer" type="java.lang.String"/>
+</ilog.rules.studio.model.rule:Function>
