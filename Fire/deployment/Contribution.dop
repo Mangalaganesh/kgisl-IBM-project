@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionservice:Operation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" xmlns:ilog.rules.studio.model.query.extractor="http://ilog.rules.studio/model/query/extractor.ecore" rulesetName="Contribution_GT" usingRuleflow="true" ruleflowName="Contribution Main RF" usingExtractor="true">
+  <name>Contribution</name>
+  <uuid>50b75088-24b3-4d67-8318-48259ca10919</uuid>
+  <description><![CDATA[]]></description>
+  <referencedVariables variableName="agtName" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="contactTypeCode" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="contactTypeDesc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="countryCode" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="countryLongDesc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="mainClsDesc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="natCode" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="natDesc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="natLongDesc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="occDesc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="sourceType" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="riskTypeDesc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="mCommPct" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="issueDt" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="minContri" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="occCode" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="countryDesc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="productDesc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="mRebatePct" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="chanCode" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="inputValInd" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="sumCovered" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="cnIssueDtInt" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="incepDtInt" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="expiryDtInt" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="dtPattern" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="secCode" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="sContriAnnual" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="transDesc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="sstWaiverIndDesc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="location" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="piamCode" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="c1A" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="c1B" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="c2" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="c3" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="consClsCode" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="locContri" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="intCode" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="intContri" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="pcwInd" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="pSumCovered" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="riskCode" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="splRatePctPIBB" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="splRatePctCIMB" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="escRatePctCIMB" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="escRatePctPIBB" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="addlnRatePct" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="escRatePctInt" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="planAInt" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="planBInt" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="planCInt" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="planDInt" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="planEInt" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="pcwCode" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="pcwRate" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="pcwContri" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="totSumVal" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="pcwMinRate" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="pcwMaxRate" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="pcwDetailsList" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="index" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="PcwDetails" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="curIndex" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="intDetailsRes" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="locDetailsRes" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="pcwDetailsRes" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="currentLocReq" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="locSumCovered" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="curInterestIndex" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="currentIntDetail" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="curPcwIndex" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="sItemCode" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="pcwDetailsReq" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="intDetailsReq" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="currIndextreeAge" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="treeAgeWiseVar" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="s1minRate" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="s1maxRate" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="s2minRate" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="s2maxRate" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="sSumCovered" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="detariffDiscPctMin" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="detariffDiscPctMax" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="intContriLocal" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="locContriLocal" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="riskCodeLocal" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="pcwRateLocal" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="FP16Index" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="pcwContriLocal" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="contriAnnual" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="contriAnnualLocal" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="treeAge" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="perilInd" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="sumValAge" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="hectareTreeVal" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="productType" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="yearDays" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="policyPoc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="priciGrpCode" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="disChanCode" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="disChanCodeDesc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="agtGrpName" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="totPerilContri" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="riskPricingSerNo" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="pcwPricingSerNo" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="basePricingSerNo" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="cdPricingSerNo" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="ecPricingSerNo" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="respDesc" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="canContinue" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="agtValInd" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="dobInt" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="intVehType" variableSetName="Master Variables">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="fireClassUtil" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="fireClass" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="ftrInd" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="StringBuffervariable" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="contriInd" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="valuePerHectares" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="totNoHectares" variableSetName="Fire Variables">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="agtGrpCode" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="agtCode" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="mainClsCode" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="productCode" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="sourceCode" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="sstWaiverInd" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="transType" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="pricingSerNo" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="totSumCovered" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="cnIssueDt" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="expiryDt" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="contactType" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="incepDt" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="flAmtInd" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="commPct" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="rebatePct" variableSetName="Master Variables" direction="IN_OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="pocYears" variableSetName="Fire Variables" direction="IN_OUT">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="detariffDiscPct" variableSetName="Fire Variables" direction="IN_OUT">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="planCode" variableSetName="Fire Variables" direction="IN_OUT">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="sumValue" variableSetName="Fire Variables" direction="IN_OUT">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="noOfHectares" variableSetName="Fire Variables" direction="IN_OUT">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="errorCode" variableSetName="Exception Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Exception%20Variables.var#a149e66c-cdab-4757-9d1b-78e5a405c190"/>
+  </referencedVariables>
+  <referencedVariables variableName="errorDesc" variableSetName="Exception Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Exception%20Variables.var#a149e66c-cdab-4757-9d1b-78e5a405c190"/>
+  </referencedVariables>
+  <referencedVariables variableName="riskCriteria" variableSetName="Java Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Java%20Variables.var#c36fc03f-6fc7-4e86-a9c0-1264d4efe972"/>
+  </referencedVariables>
+  <referencedVariables variableName="netPayable" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="commAmt" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="rebateAmt" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="sstAmt" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="grossContri" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="riskType" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="annualBc" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="contriAftRebate" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="compGrossContri" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="diffGrossContri" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="minContriInd" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="respCode" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="sstPct" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="totPayable" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="totbasicContri" variableSetName="Fire Variables" direction="OUT">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="stampDuty" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <referencedVariables variableName="feaDiscount" variableSetName="Fire Variables" direction="OUT">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="totpcwContri" variableSetName="Fire Variables" direction="OUT">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="contribution" variableSetName="Fire Variables" direction="OUT">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="detariffDiscAmt" variableSetName="Fire Variables" direction="OUT">
+    <variableSet href="../rules/Fire%20Variables.var#4e5d3353-a9af-4374-ac51-2534972ae1fb"/>
+  </referencedVariables>
+  <referencedVariables variableName="sRatePct" variableSetName="Master Variables" direction="OUT">
+    <variableSet href="../../Master/rules/Master%20Variables.var#9d04202d-b106-41dd-a755-69c5e18004d5"/>
+  </referencedVariables>
+  <ruleflow href="../rules/Fire%20Rule%20Flow/Contribution%20Main%20RF.rfl#42bf006d-e4db-494a-93b2-6fa674990a1a"/>
+  <extractor xsi:type="ilog.rules.studio.model.query.extractor:QueryExtractor" name="Contribution_extractor" validator="Default Validator"/>
+  <targetRuleProject href="../../Fire#c8dbe5a3-d5d9-46ac-b5e1-be22709f6b4d"/>
+</com.ibm.rules.studio.model.decisionservice:Operation>

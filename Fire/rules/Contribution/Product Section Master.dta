@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.dt:DecisionTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.dt="http://ilog.rules.studio/model/dt.ecore">
+  <name>Product Section Master</name>
+  <uuid>220595eb-fd0c-4586-8049-c51b318cad01</uuid>
+  <locale>en_US</locale>
+  <definition>
+<DT xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable" Version="7.0">
+  <Body xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable">
+                <Properties>
+                    <Property Name="UI.MediaType"><![CDATA[Web]]></Property>
+                    <Property Name="OptimizedExpressions"><![CDATA[false]]></Property>
+                    <Property Name="OptimizedExpressionMemory"><![CDATA[false]]></Property>
+                    <Property Name="RowOrdering"><![CDATA[Manual]]></Property>
+                </Properties>
+                <Structure>
+                    <ConditionDefinitions>
+                        <ConditionDefinition Id="C0">
+                            <ExpressionDefinition>
+                                <Text><![CDATA[productCode is <a string> ]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                        <ConditionDefinition Id="C2">
+                            <ExpressionDefinition>
+                                <Text><![CDATA[riskCode  is one of <strings> ]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                        <ConditionDefinition Id="C3">
+                            <ExpressionDefinition>
+                                <Text><![CDATA[sItemCode is one of <strings> ]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                    </ConditionDefinitions>
+                    <ActionDefinitions>
+                        <ActionDefinition Id="A0">
+                            <ExpressionDefinition>
+                                <Text><![CDATA[set secCode to <a string> ]]></Text>
+                            </ExpressionDefinition>
+                        </ActionDefinition>
+                    </ActionDefinitions>
+                </Structure>
+                <Contents>
+                    <Partition DefId="C0">
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["FR05W"]]></Param>
+                            </Expression>
+                            <Partition DefId="C2">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[{ "1001", "1008", "1102", "1106", "1112", "1114", "1116", "1118", "1202", "1204", "1208", "1210", "1212", "1214", "1216", "1218", "1220", "1302", "1304", "1308", "1402", "1410", "1420", "1422", "1502", "1506", "1508", "1512", "1514", "1516", "1518", "1520", "1521", "1522", "1524", "1526", "1528", "1602", "1604", "1606", "1702", "1704", "1710", "1718", "1802", "1806", "1808", "1810", "1812", "1814", "1816", "1818", "1902", "1904", "1906", "1908", "2002", "2004", "2006", "2008", "2010", "2013", "2015", "2016", "2026", "2028", "2030", "2036", "2102", "2104", "2109", "2112", "2114", "2118", "2120", "2128", "2202", "2204", "2205", "2206", "2208", "2210", "2212", "2214", "2216", "2218", "2219", "2220", "2222", "2224", "2226", "2228", "2230", "2232", "2302", "2304", "2306", "2308", "2402", "2404", "2406", "2408", "2410", "2412", "2414", "2416", "2418", "2420", "2424", "2501", "2502", "2504", "2506", "2508", "2510", "2512", "2601", "2602", "2604", "2606", "2608", "2610", "2612", "2614", "2700", "2702", "2703", "2704", "2706", "2708", "2709", "2710", "2712", "2714", "2715", "2716", "2718", "2720", "2722", "2724", "2726", "2728", "2755", "2802", "2804", "2806", "2808", "2810", "2811", "2812", "2818", "2902", "2904", "2905", "2908", "2914", "3002", "3004", "3006", "3008", "3016", "3102", "3104", "3106", "3302", "3304", "3306", "3308", "3402", "3406", "3408", "3410", "3412", "3502", "3504", "3506", "3508", "3510", "3512", "3602", "3604", "3702", "3802", "3804", "3902", "F123" }]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C3">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[{ "001", "002", "003", "004", "005", "010", "011", "012", "013", "014", "015", "B01", "D01", "F01", "M01", "P01", "R01", "S01", "T01", "C123" }]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["S1"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["FR05W"]]></Param>
+                            </Expression>
+                            <Partition DefId="C2">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[{ "1001", "1008", "1102", "1106", "1112", "1114", "1116", "1118", "1202", "1204", "1208", "1210", "1212", "1214", "1216", "1218", "1220", "1302", "1304", "1308", "1402", "1410", "1420", "1422", "1502", "1506", "1508", "1512", "1514", "1516", "1518", "1520", "1521", "1522", "1524", "1526", "1528", "1602", "1604", "1606", "1702", "1704", "1710", "1718", "1802", "1806", "1808", "1810", "1812", "1814", "1816", "1818", "1902", "1904", "1906", "1908", "2002", "2004", "2006", "2008", "2010", "2013", "2015", "2016", "2026", "2028", "2030", "2036", "2102", "2104", "2109", "2112", "2114", "2118", "2120", "2128", "2202", "2204", "2205", "2206", "2208", "2210", "2212", "2214", "2216", "2218", "2219", "2220", "2222", "2224", "2226", "2228", "2230", "2232", "2302", "2304", "2306", "2308", "2402", "2404", "2406", "2408", "2410", "2412", "2414", "2416", "2418", "2420", "2424", "2501", "2502", "2504", "2506", "2508", "2510", "2512", "2601", "2602", "2604", "2606", "2608", "2610", "2612", "2614", "2700", "2702", "2703", "2704", "2706", "2708", "2709", "2710", "2712", "2714", "2715", "2716", "2718", "2720", "2722", "2724", "2726", "2728", "2755", "2802", "2804", "2806", "2808", "2810", "2811", "2812", "2818", "2902", "2904", "2905", "2908", "2914", "3002", "3004", "3006", "3008", "3016", "3102", "3104", "3106", "3302", "3304", "3306", "3308", "3402", "3406", "3408", "3410", "3412", "3502", "3504", "3506", "3508", "3510", "3512", "3602", "3604", "3702", "3802", "3804", "3902", "F123" }]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C3">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[{ "LP01", "LP02", "LP03", "LP04", "LP05", "LP06", "LP07", "LP08", "LP09", "LP10", "D123" }]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["S2"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["FR07W"]]></Param>
+                            </Expression>
+                            <Partition DefId="C2">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[{ "F123" }]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C3">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[{ "C123" }]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["S1"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["FR07W"]]></Param>
+                            </Expression>
+                            <Partition DefId="C2">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[{ "F123" }]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C3">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[{ "D123" }]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["S2"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["FR08W"]]></Param>
+                            </Expression>
+                            <Partition DefId="C2">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA[{ "F123" }]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C3">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA[{ "D123" }]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["S1"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression/>
+                            <ActionSet/>
+                        </Condition>
+                        <Condition>
+                            <Expression/>
+                            <ActionSet/>
+                        </Condition>
+                        <Condition>
+                            <Expression/>
+                            <ActionSet/>
+                        </Condition>
+                        <Condition>
+                            <Expression/>
+                            <ActionSet/>
+                        </Condition>
+                        <Condition>
+                            <Expression/>
+                            <ActionSet/>
+                        </Condition>
+                        <Condition>
+                            <Expression/>
+                            <ActionSet/>
+                        </Condition>
+                        <Condition>
+                            <Expression/>
+                            <ActionSet/>
+                        </Condition>
+                        <Condition>
+                            <Expression/>
+                            <ActionSet/>
+                        </Condition>
+                        <Condition>
+                            <Expression/>
+                            <ActionSet/>
+                        </Condition>
+                    </Partition>
+                </Contents>
+            </Body>
+  <Resources DefaultLocale="en_US" xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable">
+                <ResourceSet Locale="en_US">
+                    <Data Name="Definitions(C0)#HeaderText"><![CDATA[Class Code]]></Data>
+                    <Data Name="Definitions(C2)#HeaderText"><![CDATA[Risk Code]]></Data>
+                    <Data Name="Definitions(C3)#HeaderText"><![CDATA[Item/SMI Code]]></Data>
+                    <Data Name="Definitions(A0)[0]#HeaderText"><![CDATA[a string]]></Data>
+                    <Data Name="Definitions(A0)#HeaderText"><![CDATA[Section Code]]></Data>
+                </ResourceSet>
+            </Resources>
+</DT>
+</definition>
+</ilog.rules.studio.model.dt:DecisionTable>

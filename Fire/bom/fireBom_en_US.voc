@@ -1,0 +1,141 @@
+# Vocabulary Properties
+uuid = fb3ae58f-01d4-4b50-99c4-80f33233e8b9
+
+# fire.Contribution
+fire.Contribution#concept.label = contribution
+fire.Contribution.converDate(java.lang.String)#phrase.navigation = contribution.converDate({0})
+fire.Contribution.locDetails#phrase.action = set the loc details of {this} to {loc detail}
+fire.Contribution.locDetails#phrase.navigation = {loc detail} of {this}
+fire.Contribution.roundMax(double)#phrase.navigation = contribution.roundMax({0})
+fire.Contribution.roundValue(double,int)#phrase.navigation = contribution.roundValue({0}, {1})
+
+# fire.FireUtil
+fire.FireUtil#concept.label = fire util
+fire.FireUtil.checkNullPointer(java.lang.String,boolean)#phrase.navigation = fire util.checkNullPointer({0}, {1})
+fire.FireUtil.checklongTmPlan(java.lang.String,double,double,double,double,double)#phrase.navigation = fire util.checklongTmPlan({0}, {1}, {2}, {3}, {4}, {5})
+fire.FireUtil.checksRatePct(java.lang.String,double,double,double,double)#phrase.navigation = fire util.checksRatePct({0}, {1}, {2}, {3}, {4})
+fire.FireUtil.trimEmpty(java.lang.String)#phrase.navigation = fire util.trimEmpty({0})
+
+# fire.IntDetailRequest
+fire.IntDetailRequest#concept.label = int detail request
+fire.IntDetailRequest.noOfHectares#phrase.action = set the no of hectares of {this} to {no of hectares}
+fire.IntDetailRequest.noOfHectares#phrase.navigation = {no of hectares} of {this}
+fire.IntDetailRequest.pcwDetails#phrase.action = set the pcw details of {this} to {pcw detail}
+fire.IntDetailRequest.pcwDetails#phrase.navigation = {pcw detail} of {this}
+fire.IntDetailRequest.sItemCode#phrase.action = set the s item code of {this} to {s item code}
+fire.IntDetailRequest.sItemCode#phrase.navigation = {s item code} of {this}
+fire.IntDetailRequest.sRatePct#phrase.action = set the s rate pct of {this} to {s rate pct}
+fire.IntDetailRequest.sRatePct#phrase.navigation = {s rate pct} of {this}
+fire.IntDetailRequest.sSumCovered#phrase.action = set the s sum covered of {this} to {s sum covered}
+fire.IntDetailRequest.sSumCovered#phrase.navigation = {s sum covered} of {this}
+fire.IntDetailRequest.treeAge#phrase.action = set the tree age of {this} to {tree age}
+fire.IntDetailRequest.treeAge#phrase.navigation = {tree age} of {this}
+
+# fire.IntDetailResponse
+fire.IntDetailResponse#concept.label = int detail response
+fire.IntDetailResponse.pcwDetails#phrase.action = set the pcw details of {this} to {pcw detail}
+fire.IntDetailResponse.pcwDetails#phrase.navigation = {pcw detail} of {this}
+fire.IntDetailResponse.sContri#phrase.action = set the s contri of {this} to {s contri}
+fire.IntDetailResponse.sContri#phrase.navigation = {s contri} of {this}
+fire.IntDetailResponse.sRatePct#phrase.action = set the s rate pct of {this} to {s rate pct}
+fire.IntDetailResponse.sRatePct#phrase.navigation = {s rate pct} of {this}
+fire.IntDetailResponse.sSumCovered#phrase.action = set the s sum covered of {this} to {s sum covered}
+fire.IntDetailResponse.sSumCovered#phrase.navigation = {s sum covered} of {this}
+fire.IntDetailResponse.sumValue#phrase.action = set the sum value of {this} to {sum value}
+fire.IntDetailResponse.sumValue#phrase.navigation = {sum value} of {this}
+
+# fire.LocDetailRequest
+fire.LocDetailRequest#concept.label = loc detail request
+fire.LocDetailRequest.consClsCode#phrase.action = set the cons cls code of {this} to {cons cls code}
+fire.LocDetailRequest.consClsCode#phrase.navigation = {cons cls code} of {this}
+fire.LocDetailRequest.intDetails#phrase.action = set the int details of {this} to {int detail}
+fire.LocDetailRequest.intDetails#phrase.navigation = {int detail} of {this}
+fire.LocDetailRequest.locSumCovered#phrase.action = set the loc sum covered of {this} to {loc sum covered}
+fire.LocDetailRequest.locSumCovered#phrase.navigation = {loc sum covered} of {this}
+fire.LocDetailRequest.riskCode#phrase.action = set the risk code of {this} to {risk code}
+fire.LocDetailRequest.riskCode#phrase.navigation = {risk code} of {this}
+fire.LocDetailRequest.totNoHectares#phrase.action = set the tot no hectares of {this} to {tot no hectares}
+fire.LocDetailRequest.totNoHectares#phrase.navigation = {tot no hectares} of {this}
+
+# fire.LocDetailResponse
+fire.LocDetailResponse#concept.label = loc detail response
+fire.LocDetailResponse.consClsCode#phrase.action = set the cons cls code of {this} to {cons cls code}
+fire.LocDetailResponse.consClsCode#phrase.navigation = {cons cls code} of {this}
+fire.LocDetailResponse.intDetails#phrase.action = set the int details of {this} to {int detail}
+fire.LocDetailResponse.intDetails#phrase.navigation = {int detail} of {this}
+fire.LocDetailResponse.locContri#phrase.action = set the loc contri of {this} to {loc contri}
+fire.LocDetailResponse.locContri#phrase.navigation = {loc contri} of {this}
+fire.LocDetailResponse.locSumCovered#phrase.action = set the loc sum covered of {this} to {loc sum covered}
+fire.LocDetailResponse.locSumCovered#phrase.navigation = {loc sum covered} of {this}
+fire.LocDetailResponse.riskCode#phrase.action = set the risk code of {this} to {risk code}
+fire.LocDetailResponse.riskCode#phrase.navigation = {risk code} of {this}
+fire.LocDetailResponse.totNoHectares#phrase.action = set the tot no hectares of {this} to {tot no hectares}
+fire.LocDetailResponse.totNoHectares#phrase.navigation = {tot no hectares} of {this}
+fire.LocDetailResponse.totSumVal#phrase.action = set the tot sum val of {this} to {tot sum val}
+fire.LocDetailResponse.totSumVal#phrase.navigation = {tot sum val} of {this}
+fire.LocDetailResponse.treeAgeWise#phrase.action = set the tree age wises of {this} to {tree age wise}
+fire.LocDetailResponse.treeAgeWise#phrase.navigation = {tree age wise} of {this}
+
+# fire.LocationDetailsRequest
+fire.LocationDetailsRequest#concept.label = location details request
+fire.LocationDetailsRequest.locDetails#phrase.action = set the loc details of {this} to {loc detail}
+fire.LocationDetailsRequest.locDetails#phrase.navigation = {loc detail} of {this}
+
+# fire.LocationDetailsResponse
+fire.LocationDetailsResponse#concept.label = location details response
+fire.LocationDetailsResponse.locDetails#phrase.action = set the loc details of {this} to {loc detail}
+fire.LocationDetailsResponse.locDetails#phrase.navigation = {loc detail} of {this}
+
+# fire.PcwDetailList
+fire.PcwDetailList#concept.label = pcw detail list
+fire.PcwDetailList.pcwdetailsvariable#phrase.action = set the pcwdetailsvariables of {this} to {pcwdetailsvariable}
+fire.PcwDetailList.pcwdetailsvariable#phrase.navigation = {pcwdetailsvariable} of {this}
+
+# fire.PcwDetailResponse
+fire.PcwDetailResponse#concept.label = pcw detail response
+fire.PcwDetailResponse.pSumCovered#phrase.action = set the p sum covered of {this} to {p sum covered}
+fire.PcwDetailResponse.pSumCovered#phrase.navigation = {p sum covered} of {this}
+fire.PcwDetailResponse.pcwCode#phrase.action = set the pcw code of {this} to {pcw code}
+fire.PcwDetailResponse.pcwCode#phrase.navigation = {pcw code} of {this}
+fire.PcwDetailResponse.pcwContri#phrase.action = set the pcw contri of {this} to {pcw contri}
+fire.PcwDetailResponse.pcwContri#phrase.navigation = {pcw contri} of {this}
+fire.PcwDetailResponse.pcwInd#phrase.action = set the pcw ind of {this} to {pcw ind}
+fire.PcwDetailResponse.pcwInd#phrase.navigation = {pcw ind} of {this}
+fire.PcwDetailResponse.pcwRate#phrase.action = set the pcw rate of {this} to {pcw rate}
+fire.PcwDetailResponse.pcwRate#phrase.navigation = {pcw rate} of {this}
+fire.PcwDetailResponse.perilInd#phrase.action = set the peril ind of {this} to {peril ind}
+fire.PcwDetailResponse.perilInd#phrase.navigation = {peril ind} of {this}
+
+# fire.PcwDetailsRequest
+fire.PcwDetailsRequest#concept.label = pcw details request
+fire.PcwDetailsRequest.pSumCovered#phrase.action = set the p sum covered of {this} to {p sum covered}
+fire.PcwDetailsRequest.pSumCovered#phrase.navigation = {p sum covered} of {this}
+fire.PcwDetailsRequest.pcwCode#phrase.action = set the pcw code of {this} to {pcw code}
+fire.PcwDetailsRequest.pcwCode#phrase.navigation = {pcw code} of {this}
+fire.PcwDetailsRequest.pcwInd#phrase.action = set the pcw ind of {this} to {pcw ind}
+fire.PcwDetailsRequest.pcwInd#phrase.navigation = {pcw ind} of {this}
+fire.PcwDetailsRequest.pcwRate#phrase.action = set the pcw rate of {this} to {pcw rate}
+fire.PcwDetailsRequest.pcwRate#phrase.navigation = {pcw rate} of {this}
+fire.PcwDetailsRequest.perilInd#phrase.action = set the peril ind of {this} to {peril ind}
+fire.PcwDetailsRequest.perilInd#phrase.navigation = {peril ind} of {this}
+
+# fire.PcwGTF
+fire.PcwGTF#concept.label = pcw GTF
+fire.PcwGTF.pcwGTFIndicatorList#phrase.action = set the pcw GTFIndicators of {this} to {pcw GTFIndicator}
+fire.PcwGTF.pcwGTFIndicatorList#phrase.navigation = {pcw GTFIndicator} of {this}
+
+# fire.RiskTypeDiscList
+fire.RiskTypeDiscList#concept.label = risk type disc list
+fire.RiskTypeDiscList.riskReason#phrase.action = set the risk reasons of {this} to {risk reason}
+fire.RiskTypeDiscList.riskReason#phrase.navigation = {risk reason} of {this}
+
+# fire.TreeAgeWise
+fire.TreeAgeWise#concept.label = tree age wise
+fire.TreeAgeWise.hectareTreeVal#phrase.action = set the hectare tree val of {this} to {hectare tree val}
+fire.TreeAgeWise.hectareTreeVal#phrase.navigation = {hectare tree val} of {this}
+fire.TreeAgeWise.noOfHectares#phrase.action = set the no of hectares of {this} to {no of hectares}
+fire.TreeAgeWise.noOfHectares#phrase.navigation = {no of hectares} of {this}
+fire.TreeAgeWise.sumValAge#phrase.action = set the sum val age of {this} to {sum val age}
+fire.TreeAgeWise.sumValAge#phrase.navigation = {sum val age} of {this}
+fire.TreeAgeWise.treeAge#phrase.action = set the tree age of {this} to {tree age}
+fire.TreeAgeWise.treeAge#phrase.navigation = {tree age} of {this}

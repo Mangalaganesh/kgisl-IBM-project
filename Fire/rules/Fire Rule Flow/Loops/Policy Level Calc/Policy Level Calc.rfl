@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <name>Policy Level Calc</name>
+  <uuid>634f3173-a65a-4d8e-a4c5-71e52e9a16fe</uuid>
+  <locale>en_US</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+  <Body>
+    <TaskList>
+      <StartTask Identifier="task_1"/>
+      <SubflowTask Identifier="subflow_0" Uuid="9b9fdeb7-ced4-4fe8-aa83-634d0c731b64"/>
+      <SubflowTask Identifier="subflow_1" Uuid="33ec39a3-7a5b-4926-8dda-166e13520aaf"/>
+      <SubflowTask Identifier="subflow_2" Uuid="b4d052e5-c49e-4720-b815-d54e2c15121e"/>
+      <ActionTask Identifier="function_0">
+        <Actions Language="bal"><![CDATA[set minContriInd to "Y" ;
+set compGrossContri to utils.roundValue ( grossContri ,2);
+set diffGrossContri to utils.roundValue ( minContri - grossContri , 2 ) ; 
+set grossContri to minContri ; 
+ set annualBc to grossContri ;]]></Actions>
+      </ActionTask>
+      <ActionTask Identifier="function_1">
+        <Actions Language="bal"><![CDATA[set sstPct to 0;]]></Actions>
+      </ActionTask>
+      <ActionTask Identifier="function_2">
+        <Actions Language="bal"><![CDATA[set rebateAmt to utils.roundValue ( grossContri * ( rebatePct / 100 ) , 2 ) ; 
+set contriAftRebate to utils.roundValue ( grossContri - rebateAmt , 2 ) ; 
+set sstAmt to utils.roundValue ( contriAftRebate * ( sstPct / 100 ) , 2 ) ; 
+set totPayable to utils.roundValue ( contriAftRebate + sstAmt + stampDuty , 2 ) ; 
+set commAmt to utils.roundValue ( contriAftRebate * ( commPct / 100 ) , 2 ) ; 
+set netPayable to utils.roundValue ( totPayable - commAmt , 2 ) ; 
+set pcwRate to utils.roundValue ( pcwRate ,5);]]></Actions>
+      </ActionTask>
+      <StopTask Identifier="task_2"/>
+    </TaskList>
+    <NodeList>
+      <TaskNode Identifier="node_0" Task="task_1"/>
+      <TaskNode Identifier="node_1" Task="task_2"/>
+      <TaskNode Identifier="node_2" Task="subflow_0"/>
+      <TaskNode Identifier="node_3" Task="subflow_1"/>
+      <TaskNode Identifier="node_4" Task="subflow_2"/>
+      <TaskNode Identifier="node_5" Task="function_0"/>
+      <BranchNode Identifier="node_6"/>
+      <TaskNode Identifier="node_7" Task="function_1"/>
+      <TaskNode Identifier="node_8" Task="function_2"/>
+    </NodeList>
+    <TransitionList>
+      <Transition Identifier="transition_1" Source="node_0" Target="node_3"/>
+      <Transition Identifier="transition_5" Source="node_5" Target="node_4"/>
+      <Transition Identifier="transition_0" Source="node_3" Target="node_6"/>
+      <Transition Identifier="transition_6" Source="node_6" Target="node_5">
+        <Conditions Language="bal"><![CDATA[grossContri is less than minContri]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_3" Source="node_6" Target="node_4"/>
+      <Transition Identifier="transition_7" Source="node_4" Target="node_7">
+        <Conditions Language="bal"><![CDATA[sstWaiverInd is "Y"]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_8" Source="node_7" Target="node_2"/>
+      <Transition Identifier="transition_4" Source="node_4" Target="node_2"/>
+      <Transition Identifier="transition_9" Source="node_2" Target="node_8"/>
+      <Transition Identifier="transition_10" Source="node_8" Target="node_1"/>
+    </TransitionList>
+  </Body>
+  <Resources>
+    <ResourceSet Locale="en_US">
+      <Data Name="node_7#y">390.0</Data>
+      <Data Name="node_8#x">-4.487892</Data>
+      <Data Name="node_8#y">550.0</Data>
+      <Data Name="node_5#name">node_5</Data>
+      <Data Name="node_2#name">node_2</Data>
+      <Data Name="node_6#label">Condition</Data>
+      <Data Name="node_3#y">70.0</Data>
+      <Data Name="node_4#x">22.891209</Data>
+      <Data Name="node_8#label">Policy Level Calculation</Data>
+      <Data Name="node_4#y">310.0</Data>
+      <Data Name="node_5#x">85.17806</Data>
+      <Data Name="node_5#y">230.0</Data>
+      <Data Name="node_6#x">71.701485</Data>
+      <Data Name="node_6#y">150.0</Data>
+      <Data Name="node_7#x">84.79009</Data>
+      <Data Name="node_0#x">76.701485</Data>
+      <Data Name="node_0#y">0.0</Data>
+      <Data Name="node_1#x">76.816795</Data>
+      <Data Name="node_8#name">node_8</Data>
+      <Data Name="node_1#y">630.0</Data>
+      <Data Name="node_2#x">10.390549</Data>
+      <Data Name="node_2#y">470.0</Data>
+      <Data Name="node_3#x">2.7341766</Data>
+      <Data Name="node_7#label">Assign SstPct to 0</Data>
+      <Data Name="node_1#name">node_1</Data>
+      <Data Name="node_2#label">Stamp DutyWaiver</Data>
+      <Data Name="node_5#label">Assign Min Contri</Data>
+      <Data Name="transition_7#label">SST waiver Ind check</Data>
+      <Data Name="node_4#name">node_4</Data>
+      <Data Name="node_7#name">node_7</Data>
+      <Data Name="node_6#name">node_6</Data>
+      <Data Name="node_0#name">node_0</Data>
+      <Data Name="node_3#name">node_3</Data>
+    </ResourceSet>
+  </Resources>
+  <Properties>
+    <imports/>
+  </Properties>
+</Ruleflow>
+</rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>

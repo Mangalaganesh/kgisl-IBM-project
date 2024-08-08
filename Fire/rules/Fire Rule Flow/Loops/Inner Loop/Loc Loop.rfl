@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <name>Loc Loop</name>
+  <uuid>44d7c9e5-c93a-4b85-a201-dbee8957ced7</uuid>
+  <locale>en_US</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+  <Body>
+    <TaskList>
+      <StartTask Identifier="start_0"/>
+      <SubflowTask Identifier="task_2" Uuid="2f4bec0e-a20c-4f2a-85d7-d849aaf80c87">
+        <InitialActions Language="irl"><![CDATA[pcwScontriSum=0;]]></InitialActions>
+        <FinalActions Language="irl"><![CDATA[c1A =0;
+c1B=0;
+c2=0;
+c3=0;
+
+curIndex = curIndex +1;
+
+ftrInd= "N";
+
+]]></FinalActions>
+      </SubflowTask>
+      <ActionTask Identifier="task_3">
+        <InitialActions Language="irl"><![CDATA[curIndex = 0;]]></InitialActions>
+        <Actions Language="irl"><![CDATA[contribution =  new  Contribution();
+locDetailsRes  = new LocDetailResponse();
+
+contribution.locDetails= new LinkedList();
+intDetailsRes = new IntDetailResponse();
+
+pcwDetailsRes = new PcwDetailResponse();
+intDetailsRes.pcwDetails = new LinkedList();
+
+intDetailsRes = new IntDetailResponse();
+
+locDetailsRes = new LocDetailResponse();
+locDetailsRes.intDetails =  new LinkedList();]]></Actions>
+      </ActionTask>
+      <ActionTask Identifier="function_0">
+        <Actions Language="irl"><![CDATA[totbasicContri = contribution.roundValue ( totbasicContri, 2 ); 
+
+detariffDiscAmt = contribution.roundValue(((totbasicContri - feaDiscount + pcwContri )*(detariffDiscPct /100)),2); 
+totpcwContri  =  contribution.roundValue( pcwContriLocal,2);
+grossContri =  contribution.roundValue ( (totbasicContri + totpcwContri - feaDiscount - detariffDiscAmt), 2 ) ;
+annualBc = contribution.roundValue(contriAnnualLocal,2);]]></Actions>
+      </ActionTask>
+      <SubflowTask Identifier="subflow_0" Uuid="634f3173-a65a-4d8e-a4c5-71e52e9a16fe"/>
+      <StopTask Identifier="task_1"/>
+    </TaskList>
+    <NodeList>
+      <TaskNode Identifier="node_1" Task="task_1"/>
+      <BranchNode Identifier="node_2"/>
+      <TaskNode Identifier="node_3" Task="task_2"/>
+      <TaskNode Identifier="node_4" Task="task_3"/>
+      <TaskNode Identifier="node_5" Task="function_0"/>
+      <TaskNode Identifier="node_0" Task="start_0"/>
+      <TaskNode Identifier="node_6" Task="subflow_0"/>
+      <BranchNode Identifier="node_7"/>
+      <BranchNode Identifier="node_8"/>
+    </NodeList>
+    <TransitionList>
+      <Transition Identifier="transition_2" Source="node_2" Target="node_3">
+        <Conditions Language="irl"><![CDATA[curIndex < location.locDetails.size()
+
+]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_4" Source="node_4" Target="node_2"/>
+      <Transition Identifier="transition_8" Source="node_6" Target="node_1"/>
+      <Transition Identifier="transition_0" Source="node_5" Target="node_6"/>
+      <Transition Identifier="transition_1" Source="node_0" Target="node_4"/>
+      <Transition Identifier="transition_6" Source="node_2" Target="node_7"/>
+      <Transition Identifier="transition_7" Source="node_7" Target="node_5"/>
+      <Transition Identifier="transition_5" Source="node_7" Target="node_1">
+        <Conditions Language="bal"><![CDATA[canContinue is false]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_9" Source="node_3" Target="node_8"/>
+      <Transition Identifier="transition_10" Source="node_8" Target="node_2"/>
+      <Transition Identifier="transition_3" Source="node_8" Target="node_1">
+        <Conditions Language="bal"><![CDATA[canContinue is false]]></Conditions>
+      </Transition>
+    </TransitionList>
+  </Body>
+  <Resources>
+    <ResourceSet Locale="en_US">
+      <Data Name="node_2#height">36.414215</Data>
+      <Data Name="node_4#width">102.03516</Data>
+      <Data Name="node_1#height">22.0</Data>
+      <Data Name="node_3#height">53.402344</Data>
+      <Data Name="node_4#height">53.402344</Data>
+      <Data Name="node_0#height">21.0</Data>
+      <Data Name="node_7#y">297.5177</Data>
+      <Data Name="node_2#name">node_2</Data>
+      <Data Name="node_5#height">53.402344</Data>
+      <Data Name="node_6#height">68.103516</Data>
+      <Data Name="node_7#height">36.414215</Data>
+      <Data Name="node_6#label">Policy Level Calc</Data>
+      <Data Name="node_7#width">36.414215</Data>
+      <Data Name="node_3#label">LocDetails Loop</Data>
+      <Data Name="node_8#height">36.414215</Data>
+      <Data Name="node_0#width">21.0</Data>
+      <Data Name="node_3#y">299.51773</Data>
+      <Data Name="node_5#x">51.0</Data>
+      <Data Name="node_5#y">410.92007</Data>
+      <Data Name="node_7#x">84.0</Data>
+      <Data Name="node_1#x">107.5</Data>
+      <Data Name="node_8#name">node_8</Data>
+      <Data Name="node_1#y">626.7248</Data>
+      <Data Name="node_3#x">202.2071</Data>
+      <Data Name="node_1#name">node_1</Data>
+      <Data Name="node_5#label">Assigning value</Data>
+      <Data Name="node_3#width">102.0</Data>
+      <Data Name="node_4#name">node_4</Data>
+      <Data Name="node_7#name">node_7</Data>
+      <Data Name="node_6#width">102.0</Data>
+      <Data Name="node_8#x">165.2071</Data>
+      <Data Name="node_8#y">410.92004</Data>
+      <Data Name="node_5#name">node_5</Data>
+      <Data Name="node_2#width">36.414215</Data>
+      <Data Name="node_4#x">138.13806</Data>
+      <Data Name="node_8#label">Condition</Data>
+      <Data Name="node_4#y">97.70117</Data>
+      <Data Name="node_6#x">51.0</Data>
+      <Data Name="node_5#width">102.0</Data>
+      <Data Name="node_6#y">521.67303</Data>
+      <Data Name="node_0#x">138.13806</Data>
+      <Data Name="node_0#y">10.5</Data>
+      <Data Name="node_2#x">138.13808</Data>
+      <Data Name="node_2#y">192.60945</Data>
+      <Data Name="node_7#label">Condition</Data>
+      <Data Name="node_8#width">36.414215</Data>
+      <Data Name="transition_2#label">LocDetailRequest  size</Data>
+      <Data Name="node_1#width">22.0</Data>
+      <Data Name="node_6#name">node_6</Data>
+      <Data Name="node_4#label">Intializating Response</Data>
+      <Data Name="node_0#name">node_0</Data>
+      <Data Name="node_3#name">node_3</Data>
+    </ResourceSet>
+  </Resources>
+  <Properties>
+    <imports><![CDATA[import fire.LocationDetailsResponse;
+import java.util.ArrayList;
+import fire.IntDetailResponse;
+import fire.PcwDetailResponse;
+import fire.LocDetailResponse;
+use locationRes;
+use currentItem;
+import fire.LocDetailRequest;
+use curIndex;
+use locDetailsRes;
+import java.util.LinkedList;
+use intContri;
+use policyPoc;
+import fire.Contribution;
+use totpcwContri;
+use pcwContriLocal;
+use annualBc;
+use contriAnnualLocal;
+use contribution;
+use totbasicContri;
+use ftrInd;
+use pcwContri;
+use intDetailsReq;
+use intDetailsRes;
+use pcwDetailsRes;
+use detariffDiscAmt;
+use grossContri;
+use location;
+use detariffDiscPct;
+use feaDiscount;
+use c1A ;
+use c1B;
+use c2;
+use c3;
+use contriInd;]]></imports>
+  </Properties>
+</Ruleflow>
+</rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>

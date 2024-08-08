@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <name>Loc Loop for Risk Criteria</name>
+  <uuid>ea592a86-ea3b-4921-a632-2ffc57240afd</uuid>
+  <locale>en_US</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+  <Body>
+    <TaskList>
+      <StartTask Identifier="task_0"/>
+      <SubflowTask Identifier="task_2" Uuid="2e19f5be-8eaa-426c-b11a-742af22f3cd0">
+        <FinalActions Language="irl"><![CDATA[curIndex = curIndex +1;]]></FinalActions>
+      </SubflowTask>
+      <ActionTask Identifier="function_0">
+        <Actions Language="irl"><![CDATA[curIndex = 0;]]></Actions>
+      </ActionTask>
+      <ActionTask Identifier="function_1">
+        <InitialActions Language="irl"><![CDATA[riskCriteria = new RiskTypeDescList();
+riskCriteria.riskReason = new LinkedList();]]></InitialActions>
+        <Actions Language="irl"><![CDATA[curIndex  = 0;]]></Actions>
+      </ActionTask>
+      <StopTask Identifier="task_1"/>
+    </TaskList>
+    <NodeList>
+      <TaskNode Identifier="node_0" Task="task_0"/>
+      <TaskNode Identifier="node_1" Task="task_1"/>
+      <BranchNode Identifier="node_2"/>
+      <TaskNode Identifier="node_3" Task="task_2"/>
+      <TaskNode Identifier="node_5" Task="function_0"/>
+      <TaskNode Identifier="node_6" Task="function_1"/>
+    </NodeList>
+    <TransitionList>
+      <Transition Identifier="transition_2" Source="node_2" Target="node_3">
+        <Conditions Language="irl"><![CDATA[curIndex < location.locDetails.size()]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_5" Source="node_2" Target="node_5"/>
+      <Transition Identifier="transition_6" Source="node_5" Target="node_1"/>
+      <Transition Identifier="transition_3" Source="node_0" Target="node_6"/>
+      <Transition Identifier="transition_8" Source="node_6" Target="node_2"/>
+      <Transition Identifier="transition_10" Source="node_3" Target="node_2"/>
+    </TransitionList>
+  </Body>
+  <Resources>
+    <ResourceSet Locale="en_US">
+      <Data Name="node_5#name">node_5</Data>
+      <Data Name="node_1#name">node_1</Data>
+      <Data Name="node_2#name">node_2</Data>
+      <Data Name="node_5#label">Index reset</Data>
+      <Data Name="node_6#label">set curIndex </Data>
+      <Data Name="transition_2#label">LocDetailRequest  size</Data>
+      <Data Name="node_6#name">node_6</Data>
+      <Data Name="node_3#label">Risk Criteria intDetails</Data>
+      <Data Name="node_0#name">node_0</Data>
+      <Data Name="node_3#y">245.0</Data>
+      <Data Name="node_5#x">231.0083</Data>
+      <Data Name="node_5#y">245.0</Data>
+      <Data Name="node_6#x">96.00554</Data>
+      <Data Name="node_6#y">70.0</Data>
+      <Data Name="node_0#x">146.00554</Data>
+      <Data Name="node_0#y">0.0</Data>
+      <Data Name="node_1#x">281.0083</Data>
+      <Data Name="node_1#y">325.0</Data>
+      <Data Name="node_2#x">141.00552</Data>
+      <Data Name="node_3#name">node_3</Data>
+      <Data Name="node_2#y">150.0</Data>
+      <Data Name="node_3#x">0.0</Data>
+    </ResourceSet>
+  </Resources>
+  <Properties>
+    <imports><![CDATA[import fire.LocationDetailsResponse;
+import java.util.ArrayList;
+import fire.IntDetailResponse;
+import fire.PcwDetailResponse;
+import fire.LocDetailResponse;
+use locationRes;
+use currentItem;
+import fire.LocDetailRequest;
+use curIndex;
+use locDetailsRes;
+import java.util.LinkedList;
+use intContri;
+use policyPoc;
+import fire.RiskTypeDiscList;
+use riskCriteria;
+import main.RiskTypeDescList;
+use location;
+]]></imports>
+  </Properties>
+</Ruleflow>
+</rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>

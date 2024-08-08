@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <name>Check Annual or LTF Inputs</name>
+  <uuid>9faf1429-31d6-4bc8-b3e0-1ec9ace9ade5</uuid>
+  <locale>en_US</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+  <Body>
+    <TaskList>
+      <StartTask Identifier="task_1"/>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="rule_0" Ordering="Default">
+        <InitialActions Language="irl"><![CDATA[detariffDiscPct=Utils.roundValue(detariffDiscPct,5);]]></InitialActions>
+        <FinalActions Language="irl"><![CDATA[if((detariffDiscPct >= detariffDiscPctMin) && (detariffDiscPct <= detariffDiscPctMax )){
+
+ 
+
+canContinue = true; }
+
+ 
+
+else
+
+ 
+
+{
+
+ 
+
+errorCode ="ERR_0303";
+
+ 
+
+canContinue = false;
+
+ 
+
+}]]></FinalActions>
+        <RuleList>
+          <Rule Uuid="e9bcea03-9039-4a8a-8ff1-ff5236ba8377"/>
+        </RuleList>
+      </RuleTask>
+      <StopTask Identifier="task_2"/>
+    </TaskList>
+    <NodeList>
+      <TaskNode Identifier="node_0" Task="task_1"/>
+      <TaskNode Identifier="node_1" Task="task_2"/>
+      <TaskNode Identifier="node_11" Task="rule_0"/>
+    </NodeList>
+    <TransitionList>
+      <Transition Identifier="transition_11" Source="node_11" Target="node_1"/>
+      <Transition Identifier="transition_19" Source="node_0" Target="node_11"/>
+    </TransitionList>
+  </Body>
+  <Resources>
+    <ResourceSet Locale="en_US">
+      <Data Name="node_1#height">22.0</Data>
+      <Data Name="node_11#label">Detariff Table</Data>
+      <Data Name="node_0#height">21.0</Data>
+      <Data Name="node_1#name">node_1</Data>
+      <Data Name="node_11#width">102.0</Data>
+      <Data Name="node_11#height">53.402344</Data>
+      <Data Name="node_1#width">22.0</Data>
+      <Data Name="node_0#name">node_0</Data>
+      <Data Name="node_11#x">51.0</Data>
+      <Data Name="node_0#width">21.0</Data>
+      <Data Name="node_11#y">97.70117</Data>
+      <Data Name="node_0#x">51.0</Data>
+      <Data Name="node_11#name">node_11</Data>
+      <Data Name="node_0#y">10.5</Data>
+      <Data Name="node_1#x">51.0</Data>
+      <Data Name="node_1#y">185.40234</Data>
+    </ResourceSet>
+  </Resources>
+  <Properties>
+    <imports><![CDATA[use pocYears;
+use canContinue;
+import fire.FireUtil;
+use fireClassUtil;
+use detariffDiscPct;
+use detariffDiscPctMin;
+use detariffDiscPctMax;
+use errorCode;
+import main.Utils;
+]]></imports>
+  </Properties>
+</Ruleflow>
+</rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>

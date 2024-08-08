@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <name>PCW Calc Rule Flow</name>
+  <uuid>091bc602-4a82-4a85-ba7d-6b7e5e4836f9</uuid>
+  <locale>en_US</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+  <Body>
+    <TaskList>
+      <StartTask Identifier="task_1"/>
+      <ActionTask Identifier="function_0">
+        <Actions Language="irl"><![CDATA[pcwRate = (sRatePct * addlnRatePct/100);
+pcwContri = Utils.roundValue ( ( pSumCovered * pcwRate / 100 ) * ( policyPoc / yearDays ) , 2 ) ;]]></Actions>
+      </ActionTask>
+      <ActionTask Identifier="function_2">
+        <Actions Language="irl"><![CDATA[pcwContri = (( pSumCovered * pcwRate / 100 ) * ( policyPoc / yearDays )) ;
+feaDiscount=contribution.roundValue(feaDiscount+pcwContri,2);]]></Actions>
+      </ActionTask>
+      <ActionTask Identifier="function_7">
+        <Actions Language="irl"><![CDATA[pcwContri = Utils.roundValue ( ( pSumCovered * pcwRate / 100 ) * ( policyPoc / yearDays ) , 2 );
+totpcwContri = totpcwContri+pcwContri;]]></Actions>
+      </ActionTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="rule_0" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="a3454cf4-dc25-439d-adf7-61d5d293f647"/>
+          <Rule Uuid="b1f04712-7cde-45aa-88d5-c8d58cf2e0e0"/>
+        </RuleList>
+      </RuleTask>
+      <ActionTask Identifier="task_0">
+        <Actions Language="irl"><![CDATA[if(totNoHectares != 0 && noOfHectares != 0 && treeAge != 0){
+	pSumCovered=sumValue;
+}
+
+else{
+	pSumCovered =  contribution.roundValue(pcwDetailsReq. pSumCovered,2);
+}
+
+pcwContri = Utils.roundValue ( ( pSumCovered * pcwRate / 100 ) * ( policyPoc / yearDays ) , 2 ) ;
+
+
+
+]]></Actions>
+      </ActionTask>
+      <StopTask Identifier="task_2"/>
+    </TaskList>
+    <NodeList>
+      <TaskNode Identifier="node_0" Task="task_1"/>
+      <TaskNode Identifier="node_1" Task="task_2"/>
+      <BranchNode Identifier="node_2"/>
+      <TaskNode Identifier="node_3" Task="function_0"/>
+      <BranchNode Identifier="node_5"/>
+      <TaskNode Identifier="node_7" Task="function_2"/>
+      <TaskNode Identifier="node_12" Task="function_7"/>
+      <TaskNode Identifier="node_14" Task="rule_0"/>
+      <TaskNode Identifier="node_4" Task="task_0"/>
+    </NodeList>
+    <TransitionList>
+      <Transition Identifier="transition_2" Source="node_2" Target="node_3">
+        <Conditions Language="irl"><![CDATA[pcwCode.equals( "HP4")]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_6" Source="node_3" Target="node_1"/>
+      <Transition Identifier="transition_7" Source="node_5" Target="node_7">
+        <Conditions Language="irl"><![CDATA[pcwInd != null  && pcwInd.equals("W")]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_14" Source="node_7" Target="node_1"/>
+      <Transition Identifier="transition_16" Source="node_5" Target="node_12">
+        <Conditions Language="irl"><![CDATA[pcwInd != null && pcwInd.equals("P")]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_17" Source="node_12" Target="node_1"/>
+      <Transition Identifier="transition_5" Source="node_2" Target="node_5"/>
+      <Transition Identifier="transition_9" Source="node_0" Target="node_14"/>
+      <Transition Identifier="transition_21" Source="node_14" Target="node_2"/>
+      <Transition Identifier="transition_0" Source="node_5" Target="node_1"/>
+      <Transition Identifier="transition_1" Source="node_2" Target="node_4">
+        <Conditions Language="bal"><![CDATA[productType is "GTF"]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_3" Source="node_4" Target="node_1"/>
+    </TransitionList>
+  </Body>
+  <Resources>
+    <ResourceSet Locale="en_US">
+      <Data Name="node_2#height">36.414215</Data>
+      <Data Name="node_4#width">102.0</Data>
+      <Data Name="node_1#height">22.0</Data>
+      <Data Name="node_3#height">53.402344</Data>
+      <Data Name="node_14#name">node_14</Data>
+      <Data Name="node_0#height">21.0</Data>
+      <Data Name="node_7#y">393.93198</Data>
+      <Data Name="node_4#height">40.0</Data>
+      <Data Name="node_2#name">node_2</Data>
+      <Data Name="node_5#height">36.414215</Data>
+      <Data Name="node_7#height">53.402344</Data>
+      <Data Name="node_12#height">40.0</Data>
+      <Data Name="node_14#height">53.402344</Data>
+      <Data Name="node_14#label">PCW Masters</Data>
+      <Data Name="node_12#width">102.0</Data>
+      <Data Name="node_12#y">393.93198</Data>
+      <Data Name="node_7#width">102.0</Data>
+      <Data Name="node_14#x">261.0</Data>
+      <Data Name="node_3#label">HP4 Task</Data>
+      <Data Name="node_14#y">97.70117</Data>
+      <Data Name="node_0#width">21.0</Data>
+      <Data Name="node_12#x">198.0</Data>
+      <Data Name="node_3#y">393.93198</Data>
+      <Data Name="node_5#x">225.0</Data>
+      <Data Name="node_5#y">289.02368</Data>
+      <Data Name="node_7#x">355.0</Data>
+      <Data Name="node_1#x">246.6</Data>
+      <Data Name="node_1#y">511.63318</Data>
+      <Data Name="node_3#x">507.0</Data>
+      <Data Name="node_1#name">node_1</Data>
+      <Data Name="node_2#label">Condition</Data>
+      <Data Name="node_5#label">Condition</Data>
+      <Data Name="transition_7#label">PCWInd Is "W"</Data>
+      <Data Name="node_3#width">102.0</Data>
+      <Data Name="node_4#name">node_3</Data>
+      <Data Name="node_7#name">node_7</Data>
+      <Data Name="node_12#name">node_12</Data>
+      <Data Name="node_5#name">node_5</Data>
+      <Data Name="node_2#width">36.414215</Data>
+      <Data Name="node_4#x">51.0</Data>
+      <Data Name="node_4#y">394.93198</Data>
+      <Data Name="transition_16#label">PCWInd is "P"</Data>
+      <Data Name="node_5#width">36.414215</Data>
+      <Data Name="node_0#x">261.0</Data>
+      <Data Name="node_0#y">10.5</Data>
+      <Data Name="node_12#label">All PCW</Data>
+      <Data Name="node_2#x">261.0</Data>
+      <Data Name="node_14#width">102.0</Data>
+      <Data Name="node_2#y">192.60945</Data>
+      <Data Name="node_7#label">FEA Discount</Data>
+      <Data Name="transition_2#label">HP4</Data>
+      <Data Name="node_1#width">22.0</Data>
+      <Data Name="node_0#name">node_0</Data>
+      <Data Name="node_4#label">GTF</Data>
+      <Data Name="node_3#name">node_3</Data>
+    </ResourceSet>
+  </Resources>
+  <Properties>
+    <imports><![CDATA[import fire.Contribution;
+import main.Utils;
+use addlnRatePct;
+use pSumCovered;
+use pcwContri;
+use totpcwContri;
+use sumValue;
+use pcwRate;
+use policyPoc;
+use yearDays;
+use totNoHectares;
+use noOfHectares;
+use treeAge;
+use contribution;
+use pcwDetailsReq;
+]]></imports>
+  </Properties>
+</Ruleflow>
+</rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>

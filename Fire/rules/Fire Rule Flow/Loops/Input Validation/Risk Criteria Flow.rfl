@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <name>Risk Criteria Flow</name>
+  <uuid>d5556bb5-c9ae-4d1c-9309-fb9dfa8b0283</uuid>
+  <locale>en_US</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+  <Body>
+    <TaskList>
+      <StartTask Identifier="task_1"/>
+      <ActionTask Identifier="function_1">
+        <Actions Language="irl"><![CDATA[totSumCovered= Utils.roundValue(totSumCovered ,2);
+
+sumCovered  =totSumCovered;]]></Actions>
+      </ActionTask>
+      <SubflowTask Identifier="subflow_0" Uuid="ea592a86-ea3b-4921-a632-2ffc57240afd"/>
+      <StopTask Identifier="task_2"/>
+    </TaskList>
+    <NodeList>
+      <TaskNode Identifier="node_0" Task="task_1"/>
+      <TaskNode Identifier="node_1" Task="task_2"/>
+      <TaskNode Identifier="node_5" Task="function_1"/>
+      <TaskNode Identifier="node_6" Task="subflow_0"/>
+    </NodeList>
+    <TransitionList>
+      <Transition Identifier="transition_7" Source="node_0" Target="node_5"/>
+      <Transition Identifier="transition_0" Source="node_5" Target="node_6"/>
+      <Transition Identifier="transition_1" Source="node_6" Target="node_1"/>
+    </TransitionList>
+  </Body>
+  <Resources>
+    <ResourceSet Locale="en_US">
+      <Data Name="node_5#name">node_5</Data>
+      <Data Name="node_1#name">node_1</Data>
+      <Data Name="node_5#label">set sumCovered </Data>
+      <Data Name="node_5#height">53.402344</Data>
+      <Data Name="node_6#height">68.103516</Data>
+      <Data Name="node_6#label">Risk Criteria Loc Loop</Data>
+      <Data Name="node_6#name">node_6</Data>
+      <Data Name="node_0#name">node_0</Data>
+      <Data Name="node_5#x">-121.89456</Data>
+      <Data Name="node_5#y">180.14285</Data>
+      <Data Name="node_6#x">62.82422</Data>
+      <Data Name="node_6#width">102.0</Data>
+      <Data Name="node_5#width">110.02734</Data>
+      <Data Name="node_6#y">176.14285</Data>
+      <Data Name="node_0#x">-66.03519</Data>
+      <Data Name="node_0#y">108.14285</Data>
+      <Data Name="node_1#x">139.31271</Data>
+      <Data Name="node_1#y">258.14285</Data>
+    </ResourceSet>
+  </Resources>
+  <Properties>
+    <imports><![CDATA[import main.Utils;
+use totSumCovered;
+use sumCovered;
+]]></imports>
+  </Properties>
+</Ruleflow>
+</rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>

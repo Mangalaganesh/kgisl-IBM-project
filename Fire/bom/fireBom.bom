@@ -1,0 +1,192 @@
+
+property loadGetterSetterAsProperties "true"
+property origin "xom:/Fire//FireJavaProject"
+property uuid "ab706eb7-e2bd-4809-ba8a-ac0fd79757f8"
+package fire;
+
+
+public class Contribution
+{
+    public java.util.LinkedList locDetails domain 0,* class fire.LocDetailResponse;
+    public Contribution(java.util.LinkedList arg domain 0,* class fire.LocDetailResponse);
+    public Contribution();
+    public static java.util.Date converDate(string arg);
+    public static double roundMax(double arg);
+    public static double roundValue(double arg1, int arg2);
+}
+
+public class FireUtil
+{
+    public FireUtil();
+    public static boolean checkNullPointer(string arg1, boolean arg2);
+    public static double checklongTmPlan(string arg1, double arg2, double arg3, double arg4, double arg5, double arg6);
+    public static double checksRatePct(string arg1, double arg2, double arg3, double arg4, double arg5);
+    public static string trimEmpty(string arg);
+}
+
+public class IntDetailRequest
+{
+    public double noOfHectares;
+    public java.util.LinkedList pcwDetails domain 0,* class fire.PcwDetailsRequest;
+    public string sItemCode;
+    public double sRatePct;
+    public double sSumCovered;
+    public double treeAge;
+    public IntDetailRequest(string arg1, 
+        string arg2, 
+        double arg3, 
+        java.lang.Number arg4, 
+        java.lang.Number arg5, 
+        java.util.List arg6 domain 0,* class fire.PcwDetailsRequest)
+                property deprecated "true";
+    public IntDetailRequest(string arg1, 
+        double arg2, 
+        double arg3, 
+        double arg4, 
+        double arg5, 
+        java.util.LinkedList arg6 domain 0,* class fire.PcwDetailsRequest);
+    public IntDetailRequest();
+}
+
+public class IntDetailResponse
+{
+    public java.util.LinkedList pcwDetails domain 0,* class fire.PcwDetailResponse;
+    public double sContri;
+    public string sItemCode;
+    public double sRatePct;
+    public double sSumCovered;
+    public double sumValue;
+    public IntDetailResponse(string arg1, 
+        string arg2, 
+        int arg3, 
+        double arg4, 
+        int arg5, 
+        java.util.List arg6 domain 0,* class fire.PcwDetailResponse)
+                property deprecated "true";
+    public IntDetailResponse(string arg1, 
+        double arg2, 
+        double arg3, 
+        double arg4, 
+        double arg5, 
+        java.util.LinkedList arg6 domain 0,* class fire.PcwDetailResponse);
+    public IntDetailResponse();
+}
+
+public class LocDetailRequest
+{
+    public string consClsCode;
+    public java.util.LinkedList intDetails domain 0,* class fire.IntDetailRequest;
+    public double locSumCovered;
+    public string riskCode;
+    public double totNoHectares;
+    public LocDetailRequest(string arg1, 
+        string arg2, 
+        double arg3, 
+        java.lang.Number arg4, 
+        java.util.List arg5 domain 0,* class fire.IntDetailRequest)
+                property deprecated "true";
+    public LocDetailRequest(string arg1, 
+        string arg2, 
+        double arg3, 
+        double arg4, 
+        java.util.LinkedList arg5 domain 0,* class fire.IntDetailRequest);
+    public LocDetailRequest();
+}
+
+public class LocDetailResponse
+{
+    public string consClsCode;
+    public java.util.LinkedList intDetails domain 0,* class fire.IntDetailResponse;
+    public double locContri;
+    public double locSumCovered;
+    public string riskCode;
+    public double totNoHectares;
+    public double totSumVal;
+    public java.util.LinkedList treeAgeWise domain 0,* class fire.TreeAgeWise;
+    public LocDetailResponse(string arg1, 
+        string arg2, 
+        double arg3, 
+        double arg4, 
+        java.util.List arg5 domain 0,* class fire.IntDetailResponse)
+                property deprecated "true";
+    public LocDetailResponse(string arg1, 
+        string arg2, 
+        double arg3, 
+        double arg4, 
+        java.util.LinkedList arg5 domain 0,* class fire.IntDetailResponse, 
+        double arg6, 
+        java.util.LinkedList arg7 domain 0,* class fire.TreeAgeWise, 
+        double arg8);
+    public LocDetailResponse();
+}
+
+public class LocationDetailsRequest
+{
+    public java.util.LinkedList locDetails domain 0,* class fire.LocDetailRequest;
+    public LocationDetailsRequest(java.util.LinkedList arg domain 0,* class fire.LocDetailRequest);
+    public LocationDetailsRequest();
+}
+
+public class LocationDetailsResponse
+{
+    public java.util.LinkedList locDetails domain 0,* class fire.LocDetailResponse;
+    public LocationDetailsResponse(java.util.LinkedList arg domain 0,* class fire.LocDetailResponse);
+    public LocationDetailsResponse();
+}
+
+public class PcwDetailList
+{
+    public java.util.LinkedList pcwdetailsvariable domain 0,* class fire.PcwDetailsRequest;
+    public PcwDetailList(java.util.ArrayList arg domain 0,* class fire.PcwDetailsRequest)
+                property deprecated "true";
+    public PcwDetailList(java.util.LinkedList arg domain 0,* class fire.PcwDetailsRequest);
+    public PcwDetailList();
+}
+
+public class PcwDetailResponse
+{
+    public double pSumCovered;
+    public string pcwCode;
+    public double pcwContri;
+    public string pcwInd;
+    public double pcwRate;
+    public string perilInd;
+    public PcwDetailResponse(string arg1, string arg2, string arg3, double arg4, double arg5, double arg6);
+    public PcwDetailResponse();
+}
+
+public class PcwDetailsRequest
+{
+    public java.lang.Double pSumCovered;
+    public string pcwCode;
+    public string pcwInd;
+    public java.lang.Double pcwRate;
+    public string perilInd;
+    public PcwDetailsRequest(string arg1, string arg2, string arg3, java.lang.Double arg4, java.lang.Double arg5);
+    public PcwDetailsRequest();
+}
+
+public class PcwGTF
+{
+    public java.util.ArrayList pcwGTFIndicatorList domain 0,* class string;
+    public PcwGTF(java.util.ArrayList arg domain 0,* class string);
+    public PcwGTF();
+}
+
+public class RiskTypeDiscList
+{
+    public java.util.LinkedList riskReason domain 0,* class string;
+    public RiskTypeDiscList(java.util.LinkedList arg domain 0,* class string);
+    public RiskTypeDiscList();
+}
+
+public class TreeAgeWise
+{
+    public double hectareTreeVal;
+    public double noOfHectares;
+    public double sumValAge;
+    public double treeAge;
+    public TreeAgeWise(double arg1, double arg2, double arg3, double arg4);
+    public TreeAgeWise();
+}
+

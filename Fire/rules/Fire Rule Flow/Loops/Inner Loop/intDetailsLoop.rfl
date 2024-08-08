@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <name>intDetailsLoop</name>
+  <uuid>3b2ae5c0-cda9-476b-924d-eb9f01cf8c0e</uuid>
+  <locale>en_US</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+  <Body>
+    <TaskList>
+      <StartTask Identifier="task_0"/>
+      <SubflowTask Identifier="task_2" Uuid="aa815ecc-ed5b-4401-b935-80ad9c8130ca">
+        <FinalActions Language="irl"><![CDATA[curPcwIndex  = curPcwIndex + 1;
+
+]]></FinalActions>
+      </SubflowTask>
+      <ActionTask Identifier="task_3">
+        <InitialActions Language="irl"><![CDATA[curPcwIndex  = 0;]]></InitialActions>
+        <Actions Language="irl"><![CDATA[
+currentIntDetail = (IntDetailRequest)currentLocReq.intDetails.get(curInterestIndex);
+sItemCode =currentIntDetail.sItemCode;
+sSumCovered =contribution.roundValue(currentIntDetail.sSumCovered,2);
+noOfHectares =currentIntDetail.noOfHectares;
+treeAge = currentIntDetail.treeAge;
+intDetailsRes = new  IntDetailResponse();
+intDetailsRes.pcwDetails =  new LinkedList();
+
+if(productType=="GTF"){
+pcwContriSum=0;
+}
+
+
+
+
+]]></Actions>
+      </ActionTask>
+      <ActionTask Identifier="task_4">
+        <FinalActions Language="bal"><![CDATA[set curPcwIndex to 0;]]></FinalActions>
+        <Actions Language="irl"><![CDATA[if(productType !="GTF"){
+intDetailsRes.sItemCode = sItemCode;
+//intDetailsRes.secCode = secCode;
+intDetailsRes.sSumCovered = sSumCovered ;
+locDetailsRes.intDetails.add(intDetailsRes);
+locDetailsRes.treeAgeWise = new LinkedList();
+}
+else{
+	intDetailsRes.sItemCode = sItemCode;
+intDetailsRes.sSumCovered = sSumCovered ;
+intDetailsRes.sContri=pcwContriSum;
+locDetailsRes.intDetails.add(intDetailsRes);
+locDetailsRes.treeAgeWise = new LinkedList();
+}
+
+]]></Actions>
+      </ActionTask>
+      <SubflowTask Identifier="task_5" Uuid="45a2bb43-8777-4618-b45c-a867a5187ff6">
+        <FinalActions Language="irl"><![CDATA[currIndextreeAge = currIndextreeAge +1;]]></FinalActions>
+      </SubflowTask>
+      <ActionTask Identifier="task_6">
+        <Actions Language="irl"><![CDATA[locDetailsRes.treeAgeWise.add(treeAgeWiseVar);
+
+//locDetailsRes.totSumVal = 0;]]></Actions>
+      </ActionTask>
+      <SubflowTask Identifier="subflow_0" Uuid="ed1765ee-0e70-4202-9327-4e7d51b143d8"/>
+      <ActionTask Identifier="function_2">
+        <Actions Language="irl"><![CDATA[intDetailsRes.sRatePct = sRatePct;
+intDetailsRes.sContri = contribution.roundValue(( sSumCovered* sRatePct / 100 ) * ( policyPoc / yearDays ),2) ;
+locDetailsRes.locContri = contribution.roundValue(locDetailsRes.locContri + intDetailsRes.sContri,2);
+contriAnnual = contribution.roundValue((sSumCovered * sRatePct/100), 2);
+contriAnnualLocal = contriAnnualLocal + contriAnnual;
+
+
+
+]]></Actions>
+      </ActionTask>
+      <SubflowTask Identifier="subflow_1" Uuid="c7fc45fe-418a-4411-8b10-7a4d82a34b6e">
+        <FinalActions Language="irl"><![CDATA[FP16Index =  FP16Index + 1;]]></FinalActions>
+      </SubflowTask>
+      <ActionTask Identifier="function_0">
+        <Actions Language="irl"><![CDATA[FP16Index =  0;]]></Actions>
+      </ActionTask>
+      <RuleTask ExecutionMode="Fastpath" ExitCriteria="None" Identifier="task_7" Ordering="Default">
+        <RuleList>
+          <Rule Uuid="d2740edd-d994-4bbf-9afb-fa28f933e572"/>
+        </RuleList>
+      </RuleTask>
+      <SubflowTask Identifier="task_8" Uuid="7631f476-4f30-4f8b-827c-a8d892d8f8f6"/>
+      <StopTask Identifier="task_1"/>
+    </TaskList>
+    <NodeList>
+      <TaskNode Identifier="node_0" Task="task_0"/>
+      <TaskNode Identifier="node_1" Task="task_1"/>
+      <TaskNode Identifier="node_2" Task="task_2"/>
+      <BranchNode Identifier="node_3"/>
+      <TaskNode Identifier="node_4" Task="task_3"/>
+      <TaskNode Identifier="node_5" Task="task_4"/>
+      <BranchNode Identifier="node_6"/>
+      <TaskNode Identifier="node_7" Task="task_5"/>
+      <TaskNode Identifier="node_8" Task="task_6"/>
+      <TaskNode Identifier="node_11" Task="subflow_0"/>
+      <BranchNode Identifier="node_12"/>
+      <TaskNode Identifier="node_14" Task="function_2"/>
+      <TaskNode Identifier="node_9" Task="subflow_1"/>
+      <TaskNode Identifier="node_10" Task="function_0"/>
+      <BranchNode Identifier="node_15"/>
+      <BranchNode Identifier="node_13"/>
+      <TaskNode Identifier="node_16" Task="task_7"/>
+      <TaskNode Identifier="node_17" Task="task_8"/>
+    </NodeList>
+    <TransitionList>
+      <Transition Identifier="transition_1" Source="node_3" Target="node_2">
+        <Conditions Language="irl"><![CDATA[curPcwIndex < currentIntDetail.pcwDetails.size()]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_2" Source="node_2" Target="node_3"/>
+      <Transition Identifier="transition_0" Source="node_0" Target="node_4"/>
+      <Transition Identifier="transition_5" Source="node_5" Target="node_6"/>
+      <Transition Identifier="transition_6" Source="node_6" Target="node_8"/>
+      <Transition Identifier="transition_7" Source="node_6" Target="node_7">
+        <Conditions Language="irl"><![CDATA[currIndextreeAge < 1]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_8" Source="node_7" Target="node_6"/>
+      <Transition Identifier="transition_9" Source="node_8" Target="node_1"/>
+      <Transition Identifier="transition_15" Source="node_12" Target="node_14">
+        <Conditions Language="irl"><![CDATA[((!(productCode.equals("FR05W")) && !(productCode.equals("FR07W")) && !(productCode.equals("FR08W"))) && (productType.equals("ANNUAL")))]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_13" Source="node_14" Target="node_3"/>
+      <Transition Identifier="transition_3" Source="node_3" Target="node_10"/>
+      <Transition Identifier="transition_10" Source="node_10" Target="node_15"/>
+      <Transition Identifier="transition_19" Source="node_15" Target="node_9">
+        <Conditions Language="irl"><![CDATA[FP16Index < currentIntDetail.pcwDetails.size()
+]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_18" Source="node_9" Target="node_15"/>
+      <Transition Identifier="transition_17" Source="node_15" Target="node_5"/>
+      <Transition Identifier="transition_14" Source="node_12" Target="node_11">
+        <Conditions Language="irl"><![CDATA[(((productCode.equals("FR05W")) || (productCode.equals("FR07W")) ||  (productCode.equals("FR08W"))) && (productType.equals( "ANNUAL")))]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_12" Source="node_11" Target="node_3"/>
+      <Transition Identifier="transition_11" Source="node_12" Target="node_3"/>
+      <Transition Identifier="transition_16" Source="node_11" Target="node_1">
+        <Conditions Language="bal"><![CDATA[canContinue is false]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_20" Source="node_13" Target="node_12"/>
+      <Transition Identifier="transition_21" Source="node_13" Target="node_16">
+        <Conditions Language="bal"><![CDATA[productType is "GTF"]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_22" Source="node_16" Target="node_17"/>
+      <Transition Identifier="transition_25" Source="node_4" Target="node_13"/>
+      <Transition Identifier="transition_26" Source="node_17" Target="node_3"/>
+    </TransitionList>
+  </Body>
+  <Resources>
+    <ResourceSet Locale="en_US">
+      <Data Name="node_14#name">node_14</Data>
+      <Data Name="node_9#x">144.64255</Data>
+      <Data Name="node_9#y">832.605</Data>
+      <Data Name="node_15#width">36.414215</Data>
+      <Data Name="node_10#label">Assign Index</Data>
+      <Data Name="node_10#height">53.402344</Data>
+      <Data Name="node_17#height">53.402344</Data>
+      <Data Name="node_11#height">40.0</Data>
+      <Data Name="node_12#height">36.414215</Data>
+      <Data Name="node_14#height">53.402344</Data>
+      <Data Name="node_15#height">36.414215</Data>
+      <Data Name="node_13#height">36.414215</Data>
+      <Data Name="node_16#height">53.402344</Data>
+      <Data Name="node_12#width">36.414215</Data>
+      <Data Name="node_12#y">287.5177</Data>
+      <Data Name="node_16#x">53.35254</Data>
+      <Data Name="node_0#width">21.0</Data>
+      <Data Name="node_12#x">224.93275</Data>
+      <Data Name="node_5#x">350.01804</Data>
+      <Data Name="node_5#y">836.605</Data>
+      <Data Name="node_16#y">288.51773</Data>
+      <Data Name="node_1#x">490.18604</Data>
+      <Data Name="node_8#name">node_8</Data>
+      <Data Name="node_1#y">1142.1744</Data>
+      <Data Name="node_3#width">36.414215</Data>
+      <Data Name="node_15#name">node_15</Data>
+      <Data Name="node_7#name">node_7</Data>
+      <Data Name="node_12#name">node_12</Data>
+      <Data Name="node_9#label">FP16 Loop</Data>
+      <Data Name="node_16#label">GTF Contribution</Data>
+      <Data Name="node_6#width">36.414215</Data>
+      <Data Name="node_10#width">102.0</Data>
+      <Data Name="node_17#name">node_5</Data>
+      <Data Name="node_5#name">node_5</Data>
+      <Data Name="node_15#x">232.6606</Data>
+      <Data Name="node_15#y">705.64496</Data>
+      <Data Name="node_11#x">354.93277</Data>
+      <Data Name="node_11#y">400.92007</Data>
+      <Data Name="node_8#label">Adding TreeAgeWise</Data>
+      <Data Name="node_6#x">350.018</Data>
+      <Data Name="node_5#width">140.07227</Data>
+      <Data Name="node_6#y">949.565</Data>
+      <Data Name="node_11#name">node_11</Data>
+      <Data Name="node_12#label">Condition</Data>
+      <Data Name="node_2#x">75.660614</Data>
+      <Data Name="node_14#width">102.0</Data>
+      <Data Name="node_2#y">610.7367</Data>
+      <Data Name="node_11#label">FCL Calc</Data>
+      <Data Name="node_2#height">40.0</Data>
+      <Data Name="node_4#width">130.73242</Data>
+      <Data Name="node_1#height">22.0</Data>
+      <Data Name="node_3#height">36.414215</Data>
+      <Data Name="node_0#height">21.0</Data>
+      <Data Name="node_4#height">53.402344</Data>
+      <Data Name="node_7#y">1054.4733</Data>
+      <Data Name="node_17#label">GTF Subflow</Data>
+      <Data Name="node_2#name">node_2</Data>
+      <Data Name="transition_1#label">PcwDetailsRequest size</Data>
+      <Data Name="node_5#height">97.50586</Data>
+      <Data Name="node_6#height">36.414215</Data>
+      <Data Name="node_7#height">40.0</Data>
+      <Data Name="node_14#label">Annual Calc</Data>
+      <Data Name="node_7#width">114.69141</Data>
+      <Data Name="node_14#x">197.93277</Data>
+      <Data Name="node_14#y">400.92007</Data>
+      <Data Name="node_8#height">53.402344</Data>
+      <Data Name="node_9#height">53.402344</Data>
+      <Data Name="node_10#x">232.66061</Data>
+      <Data Name="node_10#y">610.7367</Data>
+      <Data Name="node_3#y">505.82837</Data>
+      <Data Name="node_7#x">265.16843</Data>
+      <Data Name="node_3#x">127.99396</Data>
+      <Data Name="node_1#name">node_1</Data>
+      <Data Name="node_5#label">Adding IntDetailResponse and Initialize TreeAgeWise</Data>
+      <Data Name="transition_7#label">TreeAgeWise Size</Data>
+      <Data Name="node_4#name">node_4</Data>
+      <Data Name="node_16#width">106.70508</Data>
+      <Data Name="node_13#width">36.414215</Data>
+      <Data Name="node_8#x">434.86765</Data>
+      <Data Name="node_8#y">1054.4733</Data>
+      <Data Name="node_9#width">102.0</Data>
+      <Data Name="node_13#x">135.43275</Data>
+      <Data Name="node_13#y">192.60945</Data>
+      <Data Name="node_2#width">102.0</Data>
+      <Data Name="node_17#width">102.0</Data>
+      <Data Name="node_15#label">Condition</Data>
+      <Data Name="node_4#x">135.43274</Data>
+      <Data Name="node_4#y">97.70117</Data>
+      <Data Name="node_0#x">135.43274</Data>
+      <Data Name="node_17#x">52.35254</Data>
+      <Data Name="node_0#y">10.5</Data>
+      <Data Name="node_17#y">400.92007</Data>
+      <Data Name="node_11#width">102.0</Data>
+      <Data Name="node_10#name">node_10</Data>
+      <Data Name="node_8#width">114.70703</Data>
+      <Data Name="node_1#width">22.0</Data>
+      <Data Name="node_6#name">node_6</Data>
+      <Data Name="node_9#name">node_9</Data>
+      <Data Name="node_0#name">node_0</Data>
+      <Data Name="node_4#label">Assign IntDetailRequest</Data>
+      <Data Name="node_13#name">node_6</Data>
+      <Data Name="node_16#name">node_1</Data>
+      <Data Name="node_3#name">node_3</Data>
+    </ResourceSet>
+  </Resources>
+  <Properties>
+    <imports><![CDATA[import fire.LocDetailRequest;
+import fire.IntDetailRequest;
+use curPcwIndex;
+import fire.IntDetailResponse;
+import fire.PcwDetailResponse;
+use intDetailsRes;
+use locDetailsRes;
+import fire.LocDetailResponse;
+import java.util.LinkedList;
+use currIndextreeAge;
+use treeAgeWiseVar;
+use fireClass;
+use sItemCode;
+use sSumCovered;
+use sumCovered;
+use pcwContriLocal;
+use sRatePct;
+use intDetailsReq;
+use contriAnnual;
+use contriAnnualLocal;
+use secCode;
+use contribution;
+use productCode;
+use productType;
+import main.Utils;
+use policyPoc;
+use yearDays;
+use FP16Index;
+use currentIntDetail;
+use currentLocReq;
+use curInterestIndex;
+use noOfHectares;
+import java.util.ArrayList;
+use stringList;
+use pcwContri;
+use sumValue;
+use pcwDetailsRes;
+use pcwContriSum;
+use pcwScontriSum;
+]]></imports>
+  </Properties>
+</Ruleflow>
+</rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>

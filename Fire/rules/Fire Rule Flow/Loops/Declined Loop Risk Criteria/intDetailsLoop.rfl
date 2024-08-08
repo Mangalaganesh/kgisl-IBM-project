@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.ruleflow:RuleFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.ruleflow="http://ilog.rules.studio/model/ruleflow.ecore">
+  <name>intDetailsLoop</name>
+  <uuid>a059f520-c8d7-4e7b-b28f-84a08b6c5a97</uuid>
+  <locale>en_US</locale>
+  <categories>any</categories>
+  <rfModel>
+<Ruleflow xmlns="http://schemas.ilog.com/Rules/7.0/Ruleflow">
+  <Body>
+    <TaskList>
+      <StartTask Identifier="task_0"/>
+      <SubflowTask Identifier="task_2" Uuid="d1a96551-96d0-48cc-9ba0-da77446759e5">
+        <FinalActions Language="irl"><![CDATA[curPcwIndex  = curPcwIndex + 1;]]></FinalActions>
+      </SubflowTask>
+      <ActionTask Identifier="task_3">
+        <InitialActions Language="irl"><![CDATA[curPcwIndex  = 0;]]></InitialActions>
+        <Actions Language="irl"><![CDATA[
+currentIntDetail = (IntDetailRequest)currentLocReq.intDetails.get(curInterestIndex);
+sItemCode =currentIntDetail.sItemCode;
+sSumCovered = currentIntDetail.sSumCovered;
+//treeAge = currentIntDetail.treeAge;
+intDetailsRes = new  IntDetailResponse();
+intDetailsRes.pcwDetails =  new LinkedList();
+
+]]></Actions>
+      </ActionTask>
+      <ActionTask Identifier="task_4">
+        <FinalActions Language="irl"><![CDATA[curPcwIndex = 0;]]></FinalActions>
+        <Actions Language="irl"><![CDATA[
+intDetailsRes.sItemCode = sItemCode;
+intDetailsRes.sSumCovered = (int)sSumCovered ;
+locDetailsRes.intDetails.add(intDetailsRes);
+locDetailsRes.treeAgeWise = new LinkedList();
+]]></Actions>
+      </ActionTask>
+      <SubflowTask Identifier="task_5" Uuid="45a2bb43-8777-4618-b45c-a867a5187ff6">
+        <FinalActions Language="irl"><![CDATA[currIndextreeAge = currIndextreeAge +1;]]></FinalActions>
+      </SubflowTask>
+      <ActionTask Identifier="task_6">
+        <Actions Language="irl"><![CDATA[locDetailsRes.treeAgeWise.add(treeAgeWiseVar);
+
+locDetailsRes.totSumVal = 0;]]></Actions>
+      </ActionTask>
+      <StopTask Identifier="task_1"/>
+    </TaskList>
+    <NodeList>
+      <TaskNode Identifier="node_0" Task="task_0"/>
+      <TaskNode Identifier="node_1" Task="task_1"/>
+      <TaskNode Identifier="node_2" Task="task_2"/>
+      <BranchNode Identifier="node_3"/>
+      <TaskNode Identifier="node_4" Task="task_3"/>
+      <TaskNode Identifier="node_5" Task="task_4"/>
+      <BranchNode Identifier="node_6"/>
+      <TaskNode Identifier="node_7" Task="task_5"/>
+      <TaskNode Identifier="node_8" Task="task_6"/>
+    </NodeList>
+    <TransitionList>
+      <Transition Identifier="transition_1" Source="node_3" Target="node_2">
+        <Conditions Language="irl"><![CDATA[curPcwIndex < currentIntDetail.pcwDetails.size()]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_2" Source="node_2" Target="node_3"/>
+      <Transition Identifier="transition_0" Source="node_0" Target="node_4"/>
+      <Transition Identifier="transition_5" Source="node_5" Target="node_6"/>
+      <Transition Identifier="transition_6" Source="node_6" Target="node_8"/>
+      <Transition Identifier="transition_7" Source="node_6" Target="node_7">
+        <Conditions Language="irl"><![CDATA[currIndextreeAge < 1]]></Conditions>
+      </Transition>
+      <Transition Identifier="transition_8" Source="node_7" Target="node_6"/>
+      <Transition Identifier="transition_9" Source="node_8" Target="node_1"/>
+      <Transition Identifier="transition_4" Source="node_4" Target="node_3"/>
+      <Transition Identifier="transition_3" Source="node_3" Target="node_5"/>
+    </TransitionList>
+  </Body>
+  <Resources>
+    <ResourceSet Locale="en_US">
+      <Data Name="node_4#width">130.73242</Data>
+      <Data Name="node_4#height">53.402344</Data>
+      <Data Name="node_7#y">620.68713</Data>
+      <Data Name="node_8#x">342.68628</Data>
+      <Data Name="node_8#y">620.68713</Data>
+      <Data Name="node_5#name">node_5</Data>
+      <Data Name="node_2#name">node_2</Data>
+      <Data Name="transition_1#label">PcwDetailsRequest size</Data>
+      <Data Name="node_5#height">97.50586</Data>
+      <Data Name="node_8#height">53.402344</Data>
+      <Data Name="node_3#y">350.68713</Data>
+      <Data Name="node_4#x">175.02173</Data>
+      <Data Name="node_8#label">Adding TreeAgeWise</Data>
+      <Data Name="node_4#y">269.68713</Data>
+      <Data Name="node_5#x">284.48132</Data>
+      <Data Name="node_5#y">444.68713</Data>
+      <Data Name="node_6#x">289.6804</Data>
+      <Data Name="node_5#width">140.07227</Data>
+      <Data Name="node_6#y">525.68713</Data>
+      <Data Name="node_7#x">167.68628</Data>
+      <Data Name="node_0#x">257.46265</Data>
+      <Data Name="node_0#y">200.68713</Data>
+      <Data Name="node_1#x">413.78784</Data>
+      <Data Name="node_8#name">node_8</Data>
+      <Data Name="node_1#y">700.68713</Data>
+      <Data Name="node_2#x">107.48132</Data>
+      <Data Name="node_2#y">445.68713</Data>
+      <Data Name="node_3#x">252.46263</Data>
+      <Data Name="node_1#name">node_1</Data>
+      <Data Name="node_5#label">Adding IntDetailResponse and Initialize TreeAgeWise</Data>
+      <Data Name="transition_7#label">TreeAgeWise Size</Data>
+      <Data Name="node_4#name">node_4</Data>
+      <Data Name="node_8#width">114.70703</Data>
+      <Data Name="node_7#name">node_7</Data>
+      <Data Name="node_6#name">node_6</Data>
+      <Data Name="node_0#name">node_0</Data>
+      <Data Name="node_4#label">Assign IntDetailRequest</Data>
+      <Data Name="node_3#name">node_3</Data>
+    </ResourceSet>
+  </Resources>
+  <Properties>
+    <imports><![CDATA[import fire.LocDetailRequest;
+import fire.IntDetailRequest;
+use curPcwIndex;
+import fire.IntDetailResponse;
+import fire.PcwDetailResponse;
+use intDetailsRes;
+use locDetailsRes;
+import fire.LocDetailResponse;
+import java.util.LinkedList;
+use currIndextreeAge;
+use treeAgeWiseVar;
+use fireClass;
+use sItemCode;
+use sSumCovered;
+use sumCovered;
+use pcwContriLocal;
+]]></imports>
+  </Properties>
+</Ruleflow>
+</rfModel>
+</ilog.rules.studio.model.ruleflow:RuleFlow>
